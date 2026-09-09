@@ -11,6 +11,17 @@
     "status": "active"
   },
   {
+    "id": "sports_calendar",
+    "title": "国字号赛程日历 (足球 ＆ 篮球)",
+    "category": "efficiency",
+    "icon": "🏆",
+    "tag": "国家队赛程",
+    "badge": "2026-2027",
+    "url": "sports/index.html",
+    "desc": "未来6个月中国男足/女足/男篮/女篮成年国家队与U系列各级国字号赛程日历 (严禁职业联赛)。",
+    "status": "active"
+  },
+  {
     "id": "fashang",
     "title": "法商知识内参",
     "category": "legal",
