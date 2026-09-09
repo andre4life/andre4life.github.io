@@ -45,7 +45,7 @@ run("git add -A")
 status_res = run("git status --porcelain", check=False)
 
 if status_res.stdout.strip():
-    run('git commit -m "feat: deploy Master Portal and MindRadar Workbench"')
+    run('git commit -m "feat: categorize master portal links into Work, Business, Life, and Sports sections"')
     print("本地变更已完成提交")
 else:
     print("无新变更需要提交")

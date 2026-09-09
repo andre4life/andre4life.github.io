@@ -42,7 +42,7 @@
           <h1 class="text-sm md:text-base font-bold text-white tracking-wide">安总的个人数字中枢</h1>
           <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30 font-mono font-bold">总链接门户</span>
         </div>
-        <p class="text-[11px] text-slate-400">统一效能中枢 · 法商智库 · 业务工具一站式直达</p>
+        <p class="text-[11px] text-slate-400">工作管理 · 业务法商 · 生活健康 · 体育兴趣 一站式中枢</p>
       </div>
     </div>
 
@@ -50,9 +50,9 @@
     <div class="flex items-center gap-2">
       <div class="hidden sm:flex flex-col text-right text-[11px] text-slate-400 font-mono">
         <span id="live-clock" class="text-slate-200 font-bold">--:--:--</span>
-        <span class="text-[10px] text-emerald-400">● 9个子系统已联通</span>
+        <span class="text-[10px] text-emerald-400">● 11个数字系统已联通</span>
       </div>
-      <button onclick="openAddLinkModal()" class="px-3 py-1.5 rounded-lg bg-dark-750 hover:bg-dark-700 border border-dark-600 text-amber-400 text-xs font-semibold flex items-center gap-1 transition-all" title="收录新链接">
+      <button onclick="openAddLinkModal()" class="px-3 py-1.5 rounded-lg bg-dark-750 hover:bg-dark-700 border border-dark-600 text-amber-400 text-xs font-semibold flex items-center gap-1 transition-all shadow-sm" title="收录新链接">
         <span>➕</span> <span class="hidden sm:inline">收录新链接</span>
       </button>
     </div>
@@ -62,42 +62,57 @@
   <div class="bg-gradient-to-r from-amber-950/40 via-dark-850 to-indigo-950/40 border-b border-amber-500/30 px-4 md:px-8 py-2.5 text-xs text-amber-200/90 flex flex-col sm:flex-row items-center justify-between gap-2">
     <div class="flex items-center gap-2 text-[11px] md:text-xs">
       <span class="text-base">📌</span>
-      <span><strong>手机端终极用法：</strong>只需保存当前 <strong>andre4life.github.io</strong> 一个网址！在手机 Safari 点击底部分享 → <strong>【添加到主屏幕】</strong>，秒变独立 App，未来所有新工具与报告永远在此自动呈现，无需再保存新链接！</span>
+      <span><strong>手机端终极用法：</strong>只需保存当前 <strong>andre4life.github.io</strong> 一个网址！在手机 Safari 点击底部分享 → <strong>【添加到主屏幕】</strong>，秒变独立 App，未来所有新系统与赛程永远在此自动呈现，无需再保存新链接！</span>
     </div>
-    <span class="text-[10px] text-slate-400 shrink-0">永不丢失 · 10年免维护</span>
+    <span class="text-[10px] text-slate-400 shrink-0">四大分类 · 全局统一导航</span>
   </div>
 
   <!-- MAIN DASHBOARD CONTENT -->
   <main class="flex-1 p-4 md:p-8 max-w-7xl w-full mx-auto space-y-6">
 
-    <!-- SEARCH & CATEGORY FILTER -->
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-dark-850 p-3.5 rounded-2xl border border-dark-700 shadow-sm">
+    <!-- SEARCH & CATEGORY FILTER BAR -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 bg-dark-850 p-3.5 rounded-2xl border border-dark-700 shadow-sm">
       <!-- Search Box -->
       <div class="relative flex-1">
         <span class="absolute inset-y-0 left-3 flex items-center text-slate-500 text-xs">🔍</span>
-        <input type="text" id="search-box" oninput="filterCards()" placeholder="实时搜索工具、法商内参、备孕、案例库、研报..." class="w-full bg-dark-900 border border-dark-600 rounded-xl pl-8 pr-3 py-2 text-xs text-slate-200 placeholder-slate-500 outline-none focus:border-amber-500">
+        <input type="text" id="search-box" oninput="filterCards()" placeholder="实时搜索系统、看板、赛程、法商、备孕..." class="w-full bg-dark-900 border border-dark-600 rounded-xl pl-8 pr-3 py-2 text-xs text-slate-200 placeholder-slate-500 outline-none focus:border-amber-500 transition-colors">
       </div>
 
       <!-- Category Filter Pills -->
-      <div class="flex items-center gap-1.5 overflow-x-auto text-xs pb-1 sm:pb-0 scrollbar-none">
-        <button onclick="selectCategory('all')" id="btn-cat-all" class="cat-pill px-3 py-1.5 rounded-lg bg-amber-500 text-white font-bold whitespace-nowrap">全部</button>
-        <button onclick="selectCategory('efficiency')" id="btn-cat-efficiency" class="cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">⚡ 效能工作台</button>
-        <button onclick="selectCategory('legal')" id="btn-cat-legal" class="cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">⚖️ 法商与家办</button>
-        <button onclick="selectCategory('product')" id="btn-cat-product" class="cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">📊 保险与金融</button>
-        <button onclick="selectCategory('health')" id="btn-cat-health" class="cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">🌿 家庭健康</button>
+      <div class="flex items-center gap-1.5 overflow-x-auto text-xs pb-1 md:pb-0 scrollbar-none">
+        <button onclick="selectCategory('all')" id="btn-cat-all" class="cat-pill px-3 py-1.5 rounded-lg bg-amber-500 text-white font-bold whitespace-nowrap shadow-sm transition-all flex items-center gap-1">
+          <span>🌟 全部</span>
+          <span class="text-[10px] px-1.5 py-0.2 rounded-full bg-white/20">11</span>
+        </button>
+        <button onclick="selectCategory('work')" id="btn-cat-work" class="cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap transition-all flex items-center gap-1">
+          <span>💼 工作与管理</span>
+          <span class="text-[10px] px-1.5 py-0.2 rounded-full bg-blue-500/20 text-blue-300 font-mono">4</span>
+        </button>
+        <button onclick="selectCategory('business')" id="btn-cat-business" class="cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap transition-all flex items-center gap-1">
+          <span>⚖️ 业务与法商</span>
+          <span class="text-[10px] px-1.5 py-0.2 rounded-full bg-purple-500/20 text-purple-300 font-mono">4</span>
+        </button>
+        <button onclick="selectCategory('life')" id="btn-cat-life" class="cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap transition-all flex items-center gap-1">
+          <span>🌿 生活与健康</span>
+          <span class="text-[10px] px-1.5 py-0.2 rounded-full bg-emerald-500/20 text-emerald-300 font-mono">2</span>
+        </button>
+        <button onclick="selectCategory('sports')" id="btn-cat-sports" class="cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap transition-all flex items-center gap-1">
+          <span>🏆 体育与兴趣</span>
+          <span class="text-[10px] px-1.5 py-0.2 rounded-full bg-amber-500/20 text-amber-300 font-mono">1</span>
+        </button>
       </div>
     </div>
 
-    <!-- CARDS GRID -->
-    <div id="cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <!-- Dynamic Cards Injected via JS -->
+    <!-- CARDS DISPLAY CONTAINER (Grouped by Category Sections or Filtered Grid) -->
+    <div id="content-container" class="space-y-8">
+      <!-- Injected via JavaScript -->
     </div>
 
     <!-- FOOTER / HOW TO ADD FUTURE LINKS -->
-    <footer class="pt-6 border-t border-dark-700 text-center text-xs text-slate-500 space-y-1.5">
+    <footer class="pt-8 border-t border-dark-700 text-center text-xs text-slate-500 space-y-1.5">
       <p>安总的个人数字中枢 · 统一托管于 GitHub Pages (andre4life.github.io)</p>
       <p class="text-[11px] text-slate-600">
-        未来凡是由 AI 生成的新报告、新测算表或独立页面，将统一自动注册到本门户，真正实现“只存一个主链接，全局资产随身行”。
+        全业务分类架构 · 凡是新产生的项目、看板或数据报告，将自动归档至对应分类，永久通过此唯一主链接直达。
       </p>
     </footer>
 
@@ -126,10 +141,10 @@
           <div>
             <label class="block text-slate-400 mb-1">所属分类</label>
             <select id="new-link-category" class="w-full bg-dark-900 border border-dark-600 rounded-lg p-2 text-slate-200 outline-none focus:border-amber-500">
-              <option value="efficiency">⚡ 效能工作台</option>
-              <option value="legal">⚖️ 法商与家办</option>
-              <option value="product">📊 保险与金融</option>
-              <option value="health">🌿 家庭健康</option>
+              <option value="work">💼 工作与管理</option>
+              <option value="business">⚖️ 业务与法商</option>
+              <option value="life">🌿 生活与健康</option>
+              <option value="sports">🏆 体育与兴趣</option>
             </select>
           </div>
           <div>
@@ -157,13 +172,44 @@
   </div>
 
   <script>
+    const CATEGORIES = {
+      work: {
+        id: 'work',
+        name: '工作与管理',
+        icon: '💼',
+        desc: '日常管理推进、会议协同、心智效能、复盘沉淀',
+        colorClass: 'border-blue-500/30 text-blue-400'
+      },
+      business: {
+        id: 'business',
+        name: '业务与法商',
+        icon: '⚖️',
+        desc: '法商知识内参、高客家办案例、精算横向测评与金融研报',
+        colorClass: 'border-purple-500/30 text-purple-400'
+      },
+      life: {
+        id: 'life',
+        name: '生活与健康',
+        icon: '🌿',
+        desc: '备孕科学调理、家庭生活数字化备忘与健康管理',
+        colorClass: 'border-emerald-500/30 text-emerald-400'
+      },
+      sports: {
+        id: 'sports',
+        name: '体育与兴趣',
+        icon: '🏆',
+        desc: '中国男足/女足/男篮/女篮国字号赛程追踪 (严禁商业联赛)',
+        colorClass: 'border-amber-500/30 text-amber-400'
+      }
+    };
+
     let portalLinks = [];
     let currentCategory = 'all';
 
     window.addEventListener("DOMContentLoaded", async () => {
       startClock();
       await loadPortalLinks();
-      renderPortalCards();
+      renderPortalView();
     });
 
     function startClock() {
@@ -179,7 +225,7 @@
 
     async function loadPortalLinks() {
       // 1. Try to load from localStorage cache
-      const cached = localStorage.getItem("andre_portal_links");
+      const cached = localStorage.getItem("andre_portal_links_v2");
       if (cached) {
         try {
           portalLinks = JSON.parse(cached);
@@ -191,92 +237,159 @@
         const resp = await fetch("portal_links.json?" + Date.now());
         if (resp.ok) {
           portalLinks = await resp.json();
-          localStorage.setItem("andre_portal_links", JSON.stringify(portalLinks));
+          localStorage.setItem("andre_portal_links_v2", JSON.stringify(portalLinks));
         }
       } catch (err) {
         console.warn("Using cached portal links", err);
       }
     }
 
-    function renderPortalCards() {
-      const container = document.getElementById("cards-container");
+    function createCardHTML(item) {
+      const isHero = item.id === 'mindradar';
+      const cardBorder = isHero 
+        ? 'border-2 border-amber-500/60 shadow-lg shadow-amber-950/20' 
+        : 'border border-dark-700 hover:border-dark-600 hover:border-amber-500/40';
+      const cardBg = isHero 
+        ? 'bg-gradient-to-br from-amber-500/10 via-dark-850 to-dark-850' 
+        : 'bg-dark-850 hover:bg-dark-800';
+
+      return `
+        <a href="${item.url}" class="${cardBg} ${cardBorder} rounded-2xl p-5 block text-decoration-none transition-all duration-200 transform hover:-translate-y-1 hover:shadow-xl group relative overflow-hidden">
+          ${isHero ? '<div class="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 rounded-bl-full pointer-events-none"></div>' : ''}
+          
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <span class="w-10 h-10 rounded-xl bg-dark-800 group-hover:bg-dark-750 border border-dark-700 flex items-center justify-center text-xl transition-all">
+                ${item.icon || '📄'}
+              </span>
+              <div>
+                <h3 class="text-sm md:text-base font-bold text-white group-hover:text-amber-400 transition-colors flex items-center gap-1.5">
+                  ${item.title}
+                </h3>
+                <span class="text-[10px] text-slate-400">${item.tag || '数字资产'}</span>
+              </div>
+            </div>
+
+            ${item.badge ? `
+              <span class="text-[10px] px-2 py-0.5 rounded-full ${isHero ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold' : 'bg-dark-800 text-slate-300 border border-dark-600'} font-mono">
+                ${item.badge}
+              </span>
+            ` : ''}
+          </div>
+
+          <p class="text-xs text-slate-400 leading-relaxed line-clamp-2 mt-2">
+            ${item.desc || '点击直接打开该应用或报告'}
+          </p>
+
+          <div class="mt-4 pt-3 border-t border-dark-700/60 flex items-center justify-between text-[11px] text-slate-500 group-hover:text-amber-400/90 transition-colors">
+            <span class="font-mono text-[10px] truncate max-w-[200px]">${item.url}</span>
+            <span class="font-bold flex items-center gap-0.5">立即进入 <span>&rarr;</span></span>
+          </div>
+        </a>
+      `;
+    }
+
+    function renderPortalView() {
+      const container = document.getElementById("content-container");
       const query = (document.getElementById("search-box").value || "").trim().toLowerCase();
 
-      const filtered = portalLinks.filter(item => {
-        const matchCat = currentCategory === 'all' || item.category === currentCategory;
-        const matchQuery = !query || 
-          item.title.toLowerCase().includes(query) || 
-          (item.desc && item.desc.toLowerCase().includes(query)) ||
-          (item.tag && item.tag.toLowerCase().includes(query));
-        return matchCat && matchQuery;
-      });
+      // Filter by search query
+      const matchesQuery = (item) => {
+        if (!query) return true;
+        return item.title.toLowerCase().includes(query) || 
+               (item.desc && item.desc.toLowerCase().includes(query)) ||
+               (item.tag && item.tag.toLowerCase().includes(query)) ||
+               (item.categoryName && item.categoryName.toLowerCase().includes(query));
+      };
 
-      if (filtered.length === 0) {
+      if (currentCategory !== 'all') {
+        // 单个分类展示模式
+        const catMeta = CATEGORIES[currentCategory] || { name: '分类项目', icon: '📂', desc: '' };
+        const filtered = portalLinks.filter(item => item.category === currentCategory && matchesQuery(item));
+
+        if (filtered.length === 0) {
+          container.innerHTML = `
+            <div class="p-12 text-center text-slate-500 bg-dark-850 rounded-2xl border border-dashed border-dark-700">
+              <p class="text-sm">该分类下暂无匹配项目</p>
+              <p class="text-xs mt-1 text-slate-600">点击右上角“➕ 收录新链接”可自由添加</p>
+            </div>
+          `;
+          return;
+        }
+
         container.innerHTML = `
-          <div class="col-span-full p-12 text-center text-slate-500 bg-dark-850 rounded-2xl border border-dashed border-dark-700">
-            <p class="text-sm">未搜索到匹配的工具或报告</p>
-            <p class="text-xs mt-1 text-slate-600">点击右上角“➕ 收录新链接”可自由添加任意网址</p>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between border-b border-dark-700 pb-3">
+              <div class="flex items-center gap-2">
+                <span class="text-xl">${catMeta.icon}</span>
+                <h2 class="text-base font-bold text-white">${catMeta.name}</h2>
+                <span class="text-xs text-slate-400 font-mono">(${filtered.length})</span>
+              </div>
+              <p class="text-xs text-slate-400 hidden sm:block">${catMeta.desc}</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              ${filtered.map(createCardHTML).join("")}
+            </div>
           </div>
         `;
-        return;
-      }
+      } else {
+        // 全量展示模式：按 4 大分类分区渲染
+        const catOrder = ['work', 'business', 'life', 'sports'];
+        let htmlSections = [];
+        let totalRendered = 0;
 
-      container.innerHTML = filtered.map(item => {
-        const isHero = item.id === 'mindradar';
-        const cardBorder = isHero ? 'border-2 border-amber-500/60 shadow-lg shadow-amber-950/20' : 'border border-dark-700 hover:border-dark-600';
-        const cardBg = isHero ? 'bg-gradient-to-br from-amber-500/10 via-dark-850 to-dark-850' : 'bg-dark-850 hover:bg-dark-800';
+        for (const catKey of catOrder) {
+          const catMeta = CATEGORIES[catKey];
+          const items = portalLinks.filter(item => item.category === catKey && matchesQuery(item));
+          if (items.length === 0) continue;
+          totalRendered += items.length;
 
-        return `
-          <a href="${item.url}" class="${cardBg} ${cardBorder} rounded-2xl p-5 block text-decoration-none transition-all duration-200 transform hover:-translate-y-1 hover:shadow-xl group relative overflow-hidden">
-            ${isHero ? '<div class="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 rounded-bl-full pointer-events-none"></div>' : ''}
-            
-            <div class="flex items-center justify-between mb-3">
-              <div class="flex items-center gap-3">
-                <span class="w-10 h-10 rounded-xl bg-dark-800 group-hover:bg-dark-750 border border-dark-700 flex items-center justify-center text-xl transition-all">
-                  ${item.icon || '📄'}
-                </span>
-                <div>
-                  <h3 class="text-sm md:text-base font-bold text-white group-hover:text-amber-400 transition-colors flex items-center gap-1.5">
-                    ${item.title}
-                  </h3>
-                  <span class="text-[10px] text-slate-400">${item.tag || '数字资产'}</span>
+          htmlSections.push(`
+            <section class="space-y-3">
+              <div class="flex items-center justify-between pb-2 border-b border-dark-750">
+                <div class="flex items-center gap-2">
+                  <span class="text-lg">${catMeta.icon}</span>
+                  <h2 class="text-sm md:text-base font-bold text-white tracking-wide">${catMeta.name}</h2>
+                  <span class="text-[11px] px-2 py-0.5 rounded-full bg-dark-800 text-slate-400 border border-dark-700 font-mono">${items.length}项</span>
                 </div>
+                <button onclick="selectCategory('${catKey}')" class="text-xs text-slate-400 hover:text-amber-400 transition-colors flex items-center gap-0.5">
+                  仅看此分类 &rarr;
+                </button>
               </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                ${items.map(createCardHTML).join("")}
+              </div>
+            </section>
+          `);
+        }
 
-              ${item.badge ? `
-                <span class="text-[10px] px-2 py-0.5 rounded-full ${isHero ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold' : 'bg-dark-800 text-slate-300 border border-dark-600'} font-mono">
-                  ${item.badge}
-                </span>
-              ` : ''}
+        if (totalRendered === 0) {
+          container.innerHTML = `
+            <div class="p-12 text-center text-slate-500 bg-dark-850 rounded-2xl border border-dashed border-dark-700">
+              <p class="text-sm">未搜索到匹配的系统或研报</p>
+              <p class="text-xs mt-1 text-slate-600">点击右上角“➕ 收录新链接”可添加新项目</p>
             </div>
-
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-2 mt-2">
-              ${item.desc || '点击直接打开该应用或报告'}
-            </p>
-
-            <div class="mt-4 pt-3 border-t border-dark-700/60 flex items-center justify-between text-[11px] text-slate-500 group-hover:text-amber-400/90 transition-colors">
-              <span class="font-mono text-[10px] truncate max-w-[200px]">${item.url}</span>
-              <span class="font-bold flex items-center gap-0.5">立即进入 <span>&rarr;</span></span>
-            </div>
-          </a>
-        `;
-      }).join("");
+          `;
+        } else {
+          container.innerHTML = htmlSections.join("");
+        }
+      }
     }
 
     function selectCategory(cat) {
       currentCategory = cat;
       document.querySelectorAll(".cat-pill").forEach(btn => {
-        btn.className = "cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap";
+        btn.className = "cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap transition-all flex items-center gap-1";
       });
       const activeBtn = document.getElementById("btn-cat-" + cat);
       if (activeBtn) {
-        activeBtn.className = "cat-pill px-3 py-1.5 rounded-lg bg-amber-500 text-white font-bold whitespace-nowrap";
+        activeBtn.className = "cat-pill px-3 py-1.5 rounded-lg bg-amber-500 text-white font-bold whitespace-nowrap shadow-sm transition-all flex items-center gap-1";
       }
-      renderPortalCards();
+      renderPortalView();
     }
 
     function filterCards() {
-      renderPortalCards();
+      renderPortalView();
     }
 
     function openAddLinkModal() {
@@ -299,22 +412,26 @@
         return;
       }
 
+      const catMeta = CATEGORIES[category] || { name: '其他资产' };
+
       const newItem = {
         id: "custom_" + Date.now(),
         title,
         url,
         category,
+        categoryName: catMeta.name,
         icon,
         desc,
         tag: "用户收录",
         badge: "已收藏",
-        status: "active"
+        status: "active",
+        isHero: false
       };
 
       portalLinks.unshift(newItem);
-      localStorage.setItem("andre_portal_links", JSON.stringify(portalLinks));
+      localStorage.setItem("andre_portal_links_v2", JSON.stringify(portalLinks));
       closeModal("modal-add-link");
-      renderPortalCards();
+      renderPortalView();
       showToast("✅ 已成功收录至个人数字中枢！");
     }
 
