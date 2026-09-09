@@ -1,0 +1,101 @@
+[
+  {
+    "id": "mindradar",
+    "title": "心智雷达 · 个人效能与盲区工作台",
+    "category": "efficiency",
+    "icon": "⚡",
+    "tag": "核心引擎",
+    "badge": "NEW v2.1",
+    "url": "mindradar/index.html",
+    "desc": "手机碎片化心流闪记、显性短板漏洞剖析、乔哈里认知暗角投射、7天破局最小实验 (MVE)。",
+    "status": "active"
+  },
+  {
+    "id": "fashang",
+    "title": "法商知识内参",
+    "category": "legal",
+    "icon": "⚖️",
+    "tag": "家办团队赋能",
+    "badge": "每日08:00更新",
+    "url": "/fashang-neican/",
+    "desc": "每日法商实战卡片，覆盖婚姻家事编、大额保单侵害防范、企业债务隔离、家族信托税务。",
+    "status": "active"
+  },
+  {
+    "id": "beiyun",
+    "title": "备孕小贴士",
+    "category": "health",
+    "icon": "🌿",
+    "tag": "家庭健康专栏",
+    "badge": "每日07:00更新",
+    "url": "/beiyun-zhishi/",
+    "desc": "每日备孕科学知识，聚焦胰岛素抵抗、AMH与卵巢储备、排卵精准监测与科学营养调理。",
+    "status": "active"
+  },
+  {
+    "id": "gaojiabang",
+    "title": "高家帮法商案例与专家库",
+    "category": "legal",
+    "icon": "🛡️",
+    "tag": "实战案例智库",
+    "badge": "家办三师共诊",
+    "url": "/gaojiabang-case/",
+    "desc": "民商法裁判文书深度精析、高客实战咨询底稿、财富传承架构落地案例库。",
+    "status": "active"
+  },
+  {
+    "id": "insurance_compare",
+    "title": "保险产品深度对比平台",
+    "category": "product",
+    "icon": "📊",
+    "tag": "年金与分红险",
+    "badge": "精算对比",
+    "url": "/insurance-compare/",
+    "desc": "主流年金险、分红险与增额终身寿历史收益率、复利IRR、分红实现率全景横向测评。",
+    "status": "active"
+  },
+  {
+    "id": "jinrong_lib",
+    "title": "金融与家办图书馆",
+    "category": "product",
+    "icon": "📚",
+    "tag": "宏观与资产配置",
+    "badge": "深度研报",
+    "url": "/jinrong-tushuguan/",
+    "desc": "宏观利率走势、日本失落三十年对照复盘、指数基金定投理论与高客资产配置实务。",
+    "status": "active"
+  },
+  {
+    "id": "work_list",
+    "title": "日常工作清单系统",
+    "category": "efficiency",
+    "icon": "📝",
+    "tag": "任务看板",
+    "badge": "日常推进",
+    "url": "/work-list/",
+    "desc": "内勤日常核心任务流、培训日程推进看板、跨部门协同事项追踪管理。",
+    "status": "active"
+  },
+  {
+    "id": "fupan",
+    "title": "深度业务复盘沉淀",
+    "category": "efficiency",
+    "icon": "🔄",
+    "tag": "复盘沉淀",
+    "badge": "经验归档",
+    "url": "/fuhou-fupan/",
+    "desc": "大型家办沙龙、业务冲刺战役、绩优团队辅导实战复盘与方法论沉淀。",
+    "status": "active"
+  },
+  {
+    "id": "fangqian",
+    "title": "家庭准备与健康管理",
+    "category": "health",
+    "icon": "🏡",
+    "tag": "生活日常",
+    "badge": "生活指南",
+    "url": "/fangqian-zhunbei/",
+    "desc": "家庭重要阶段准备清单、健康检查排期、家庭生活数字化备忘录。",
+    "status": "active"
+  }
+]

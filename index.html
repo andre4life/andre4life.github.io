@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="安总数字中枢">
+  <title>个人数字中枢 · 统一工作台与资产总门户</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: #070a12; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+
+    .bg-dark-900 { background-color: #070a12; }
+    .bg-dark-850 { background-color: #0d1322; }
+    .bg-dark-800 { background-color: #131b2e; }
+    .bg-dark-750 { background-color: #1a243b; }
+    .border-dark-700 { border-color: #24324f; }
+    .border-dark-600 { border-color: #33446b; }
+    
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #f59e0b, #d97706, #fbbf24);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-dark-900 text-slate-200 font-sans min-h-screen flex flex-col selection:bg-amber-500 selection:text-black">
+
+  <!-- TOP STATUS & HEADER -->
+  <header class="sticky top-0 z-50 bg-dark-850/95 backdrop-blur-md border-b border-dark-700 px-4 md:px-8 py-3.5 flex items-center justify-between shadow-xl">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-amber-500 via-amber-600 to-amber-700 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-amber-900/30">
+        🏛️
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-sm md:text-base font-bold text-white tracking-wide">安总的个人数字中枢</h1>
+          <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30 font-mono font-bold">总链接门户</span>
+        </div>
+        <p class="text-[11px] text-slate-400">统一效能中枢 · 法商智库 · 业务工具一站式直达</p>
+      </div>
+    </div>
+
+    <!-- Right Controls -->
+    <div class="flex items-center gap-2">
+      <div class="hidden sm:flex flex-col text-right text-[11px] text-slate-400 font-mono">
+        <span id="live-clock" class="text-slate-200 font-bold">--:--:--</span>
+        <span class="text-[10px] text-emerald-400">● 9个子系统已联通</span>
+      </div>
+      <button onclick="openAddLinkModal()" class="px-3 py-1.5 rounded-lg bg-dark-750 hover:bg-dark-700 border border-dark-600 text-amber-400 text-xs font-semibold flex items-center gap-1 transition-all" title="收录新链接">
+        <span>➕</span> <span class="hidden sm:inline">收录新链接</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- IPHONE SAFARI TIP BANNER -->
+  <div class="bg-gradient-to-r from-amber-950/40 via-dark-850 to-indigo-950/40 border-b border-amber-500/30 px-4 md:px-8 py-2.5 text-xs text-amber-200/90 flex flex-col sm:flex-row items-center justify-between gap-2">
+    <div class="flex items-center gap-2 text-[11px] md:text-xs">
+      <span class="text-base">📌</span>
+      <span><strong>手机端终极用法：</strong>只需保存当前 <strong>andre4life.github.io</strong> 一个网址！在手机 Safari 点击底部分享 → <strong>【添加到主屏幕】</strong>，秒变独立 App，未来所有新工具与报告永远在此自动呈现，无需再保存新链接！</span>
+    </div>
+    <span class="text-[10px] text-slate-400 shrink-0">永不丢失 · 10年免维护</span>
+  </div>
+
+  <!-- MAIN DASHBOARD CONTENT -->
+  <main class="flex-1 p-4 md:p-8 max-w-7xl w-full mx-auto space-y-6">
+
+    <!-- SEARCH & CATEGORY FILTER -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-dark-850 p-3.5 rounded-2xl border border-dark-700 shadow-sm">
+      <!-- Search Box -->
+      <div class="relative flex-1">
+        <span class="absolute inset-y-0 left-3 flex items-center text-slate-500 text-xs">🔍</span>
+        <input type="text" id="search-box" oninput="filterCards()" placeholder="实时搜索工具、法商内参、备孕、案例库、研报..." class="w-full bg-dark-900 border border-dark-600 rounded-xl pl-8 pr-3 py-2 text-xs text-slate-200 placeholder-slate-500 outline-none focus:border-amber-500">
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="flex items-center gap-1.5 overflow-x-auto text-xs pb-1 sm:pb-0 scrollbar-none">
+        <button onclick="selectCategory('all')" id="btn-cat-all" class="cat-pill px-3 py-1.5 rounded-lg bg-amber-500 text-white font-bold whitespace-nowrap">全部</button>
+        <button onclick="selectCategory('efficiency')" id="btn-cat-efficiency" class="cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">⚡ 效能工作台</button>
+        <button onclick="selectCategory('legal')" id="btn-cat-legal" class="cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">⚖️ 法商与家办</button>
+        <button onclick="selectCategory('product')" id="btn-cat-product" class="cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">📊 保险与金融</button>
+        <button onclick="selectCategory('health')" id="btn-cat-health" class="cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">🌿 家庭健康</button>
+      </div>
+    </div>
+
+    <!-- CARDS GRID -->
+    <div id="cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Dynamic Cards Injected via JS -->
+    </div>
+
+    <!-- FOOTER / HOW TO ADD FUTURE LINKS -->
+    <footer class="pt-6 border-t border-dark-700 text-center text-xs text-slate-500 space-y-1.5">
+      <p>安总的个人数字中枢 · 统一托管于 GitHub Pages (andre4life.github.io)</p>
+      <p class="text-[11px] text-slate-600">
+        未来凡是由 AI 生成的新报告、新测算表或独立页面，将统一自动注册到本门户，真正实现“只存一个主链接，全局资产随身行”。
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- MODAL: ADD NEW LINK RECORD -->
+  <div id="modal-add-link" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-dark-850 border border-dark-600 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b border-dark-700 pb-3">
+        <h3 class="text-sm font-bold text-white flex items-center gap-1.5">
+          <span>➕</span> 收录新工具 / 研报链接
+        </h3>
+        <button onclick="closeModal('modal-add-link')" class="text-slate-400 hover:text-white text-base">&times;</button>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div>
+          <label class="block text-slate-400 mb-1">系统/研报名称 <span class="text-rose-400">*</span></label>
+          <input type="text" id="new-link-title" placeholder="例如：2026全国家办CRS税法实务全景指南" class="w-full bg-dark-900 border border-dark-600 rounded-lg p-2 text-slate-200 outline-none focus:border-amber-500">
+        </div>
+        <div>
+          <label class="block text-slate-400 mb-1">访问链接 URL <span class="text-rose-400">*</span></label>
+          <input type="text" id="new-link-url" placeholder="例如：/crs-report/ 或完整 https:// 链接" class="w-full bg-dark-900 border border-dark-600 rounded-lg p-2 text-slate-200 outline-none focus:border-amber-500 font-mono">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-slate-400 mb-1">所属分类</label>
+            <select id="new-link-category" class="w-full bg-dark-900 border border-dark-600 rounded-lg p-2 text-slate-200 outline-none focus:border-amber-500">
+              <option value="efficiency">⚡ 效能工作台</option>
+              <option value="legal">⚖️ 法商与家办</option>
+              <option value="product">📊 保险与金融</option>
+              <option value="health">🌿 家庭健康</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">图标 Emoji</label>
+            <input type="text" id="new-link-icon" value="📑" class="w-full bg-dark-900 border border-dark-600 rounded-lg p-2 text-slate-200 outline-none focus:border-amber-500 text-center">
+          </div>
+        </div>
+        <div>
+          <label class="block text-slate-400 mb-1">核心价值简述</label>
+          <input type="text" id="new-link-desc" placeholder="简要说明此工具或报告的核心用途" class="w-full bg-dark-900 border border-dark-600 rounded-lg p-2 text-slate-200 outline-none focus:border-amber-500">
+        </div>
+      </div>
+
+      <div class="flex items-center justify-end gap-2 pt-2 border-t border-dark-700">
+        <button onclick="closeModal('modal-add-link')" class="px-4 py-2 rounded-lg bg-dark-800 text-slate-300 text-xs">取消</button>
+        <button onclick="saveNewLink()" class="px-5 py-2 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold">加入总中枢</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-dark-800 border border-amber-500/40 text-slate-100 px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2 text-xs">
+    <span id="toast-icon">✅</span>
+    <span id="toast-msg">操作成功</span>
+  </div>
+
+  <script>
+    let portalLinks = [];
+    let currentCategory = 'all';
+
+    window.addEventListener("DOMContentLoaded", async () => {
+      startClock();
+      await loadPortalLinks();
+      renderPortalCards();
+    });
+
+    function startClock() {
+      const update = () => {
+        const now = new Date();
+        const str = now.toLocaleTimeString('zh-CN', { hour12: false });
+        const el = document.getElementById("live-clock");
+        if (el) el.innerText = str;
+      };
+      update();
+      setInterval(update, 1000);
+    }
+
+    async function loadPortalLinks() {
+      // 1. Try to load from localStorage cache
+      const cached = localStorage.getItem("andre_portal_links");
+      if (cached) {
+        try {
+          portalLinks = JSON.parse(cached);
+        } catch (e) {}
+      }
+
+      // 2. Fetch remote portal_links.json
+      try {
+        const resp = await fetch("portal_links.json?" + Date.now());
+        if (resp.ok) {
+          portalLinks = await resp.json();
+          localStorage.setItem("andre_portal_links", JSON.stringify(portalLinks));
+        }
+      } catch (err) {
+        console.warn("Using cached portal links", err);
+      }
+    }
+
+    function renderPortalCards() {
+      const container = document.getElementById("cards-container");
+      const query = (document.getElementById("search-box").value || "").trim().toLowerCase();
+
+      const filtered = portalLinks.filter(item => {
+        const matchCat = currentCategory === 'all' || item.category === currentCategory;
+        const matchQuery = !query || 
+          item.title.toLowerCase().includes(query) || 
+          (item.desc && item.desc.toLowerCase().includes(query)) ||
+          (item.tag && item.tag.toLowerCase().includes(query));
+        return matchCat && matchQuery;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full p-12 text-center text-slate-500 bg-dark-850 rounded-2xl border border-dashed border-dark-700">
+            <p class="text-sm">未搜索到匹配的工具或报告</p>
+            <p class="text-xs mt-1 text-slate-600">点击右上角“➕ 收录新链接”可自由添加任意网址</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(item => {
+        const isHero = item.id === 'mindradar';
+        const cardBorder = isHero ? 'border-2 border-amber-500/60 shadow-lg shadow-amber-950/20' : 'border border-dark-700 hover:border-dark-600';
+        const cardBg = isHero ? 'bg-gradient-to-br from-amber-500/10 via-dark-850 to-dark-850' : 'bg-dark-850 hover:bg-dark-800';
+
+        return `
+          <a href="${item.url}" class="${cardBg} ${cardBorder} rounded-2xl p-5 block text-decoration-none transition-all duration-200 transform hover:-translate-y-1 hover:shadow-xl group relative overflow-hidden">
+            ${isHero ? '<div class="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 rounded-bl-full pointer-events-none"></div>' : ''}
+            
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-3">
+                <span class="w-10 h-10 rounded-xl bg-dark-800 group-hover:bg-dark-750 border border-dark-700 flex items-center justify-center text-xl transition-all">
+                  ${item.icon || '📄'}
+                </span>
+                <div>
+                  <h3 class="text-sm md:text-base font-bold text-white group-hover:text-amber-400 transition-colors flex items-center gap-1.5">
+                    ${item.title}
+                  </h3>
+                  <span class="text-[10px] text-slate-400">${item.tag || '数字资产'}</span>
+                </div>
+              </div>
+
+              ${item.badge ? `
+                <span class="text-[10px] px-2 py-0.5 rounded-full ${isHero ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold' : 'bg-dark-800 text-slate-300 border border-dark-600'} font-mono">
+                  ${item.badge}
+                </span>
+              ` : ''}
+            </div>
+
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-2 mt-2">
+              ${item.desc || '点击直接打开该应用或报告'}
+            </p>
+
+            <div class="mt-4 pt-3 border-t border-dark-700/60 flex items-center justify-between text-[11px] text-slate-500 group-hover:text-amber-400/90 transition-colors">
+              <span class="font-mono text-[10px] truncate max-w-[200px]">${item.url}</span>
+              <span class="font-bold flex items-center gap-0.5">立即进入 <span>&rarr;</span></span>
+            </div>
+          </a>
+        `;
+      }).join("");
+    }
+
+    function selectCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll(".cat-pill").forEach(btn => {
+        btn.className = "cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap";
+      });
+      const activeBtn = document.getElementById("btn-cat-" + cat);
+      if (activeBtn) {
+        activeBtn.className = "cat-pill px-3 py-1.5 rounded-lg bg-amber-500 text-white font-bold whitespace-nowrap";
+      }
+      renderPortalCards();
+    }
+
+    function filterCards() {
+      renderPortalCards();
+    }
+
+    function openAddLinkModal() {
+      document.getElementById("modal-add-link").classList.remove("hidden");
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add("hidden");
+    }
+
+    function saveNewLink() {
+      const title = document.getElementById("new-link-title").value.trim();
+      const url = document.getElementById("new-link-url").value.trim();
+      const category = document.getElementById("new-link-category").value;
+      const icon = document.getElementById("new-link-icon").value.trim() || "📑";
+      const desc = document.getElementById("new-link-desc").value.trim();
+
+      if (!title || !url) {
+        alert("请输入名称和访问链接");
+        return;
+      }
+
+      const newItem = {
+        id: "custom_" + Date.now(),
+        title,
+        url,
+        category,
+        icon,
+        desc,
+        tag: "用户收录",
+        badge: "已收藏",
+        status: "active"
+      };
+
+      portalLinks.unshift(newItem);
+      localStorage.setItem("andre_portal_links", JSON.stringify(portalLinks));
+      closeModal("modal-add-link");
+      renderPortalCards();
+      showToast("✅ 已成功收录至个人数字中枢！");
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      document.getElementById("toast-msg").innerText = msg;
+      toast.classList.remove("translate-y-20", "opacity-0");
+      setTimeout(() => { toast.classList.add("translate-y-20", "opacity-0"); }, 2500);
+    }
+  </script>
+</body>
+</html>
