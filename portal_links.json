@@ -13,19 +13,6 @@
     "isHero": true
   },
   {
-    "id": "forum_tracker",
-    "title": "三好五星论坛参会确认看板",
-    "category": "work",
-    "categoryName": "工作与管理",
-    "icon": "📋",
-    "tag": "内部协同 · 会议推进",
-    "badge": "9.14截止",
-    "url": "forum/index.html",
-    "desc": "三部8位入围部课长参会确认、微信极简通知/接龙一键复制、8人实时核销进度看板。",
-    "status": "active",
-    "isHero": false
-  },
-  {
     "id": "work_list",
     "title": "日常工作清单系统",
     "category": "work",

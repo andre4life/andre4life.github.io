@@ -45,7 +45,7 @@ run("git add -A")
 status_res = run("git status --porcelain", check=False)
 
 if status_res.stdout.strip():
-    run('git commit -m "feat: categorize master portal links into Work, Business, Life, and Sports sections"')
+    run('git commit -m "feat: remove temporary forum task from portal links, keep 10 long-term assets"')
     print("本地变更已完成提交")
 else:
     print("无新变更需要提交")
