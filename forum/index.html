@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>三好五星论坛参会确认看板</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: #070a12; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    .bg-dark-900 { background-color: #070a12; }
+    .bg-dark-850 { background-color: #0d1322; }
+    .bg-dark-800 { background-color: #131b2e; }
+    .border-dark-700 { border-color: #24324f; }
+  </style>
+</head>
+<body class="bg-dark-900 text-slate-200 font-sans min-h-screen p-4 md:p-8 max-w-3xl mx-auto space-y-6">
+
+  <!-- Header -->
+  <header class="flex items-center justify-between border-b border-dark-700 pb-4">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="p-2 rounded-xl bg-dark-800 hover:bg-dark-750 text-amber-400 text-xs font-bold border border-dark-700">← 返回总中枢</a>
+      <div>
+        <h1 class="text-base md:text-lg font-bold text-white flex items-center gap-2">
+          <span>📋</span> 三好五星论坛参会确认看板
+        </h1>
+        <p class="text-xs text-slate-400">三部 8 位入围部课长 · 9月14日 17:00 前反馈</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Deadline Countdown & Key Badges -->
+  <div class="p-4 rounded-2xl bg-gradient-to-r from-amber-500/15 via-dark-850 to-indigo-500/15 border border-amber-500/40 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-lg">
+    <div>
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-bold text-amber-400">⏰ 反馈截止红线:</span>
+        <span class="text-xs text-white font-mono font-bold">2026年9月14日 (下周一) 17:00</span>
+      </div>
+      <div class="text-[11px] text-slate-400 mt-1">
+        会议时间：10月12日 - 10月15日 (共4天) | 名额：三部 8 位入围部课长
+      </div>
+    </div>
+    <div class="px-3 py-1.5 rounded-xl bg-dark-800 border border-dark-700 text-center">
+      <span class="text-[10px] text-slate-400 block">当前确认进度</span>
+      <span id="stat-confirmed-count" class="text-base font-bold font-mono text-emerald-400">0 / 8 位</span>
+    </div>
+  </div>
+
+  <!-- WeChat Copyable Section -->
+  <div class="bg-dark-850 rounded-2xl border border-dark-700 p-4 space-y-3">
+    <div class="flex items-center justify-between border-b border-dark-700 pb-2">
+      <h2 class="text-xs font-bold text-slate-200 flex items-center gap-1.5">
+        <span>📱</span> 微信一键发送文案 (纯文本无格式错乱)
+      </h2>
+      <span class="text-[10px] text-slate-500">点击下方按钮直接复制</span>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <!-- Option 1 -->
+      <div class="p-3 bg-dark-800 rounded-xl border border-dark-700 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-amber-300">方案一：微信群极简通知版</span>
+          <button onclick="copyNoticeText()" class="px-2 py-1 rounded bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-[10px] font-bold">
+            📋 复制文案
+          </button>
+        </div>
+        <pre id="wx-notice-text" class="text-[11px] text-slate-300 whitespace-pre-wrap font-sans bg-dark-900 p-2.5 rounded border border-dark-700 leading-relaxed select-all">【工作安排】总部三好五星论坛参会确认
+
+各位内勤伙伴好，刚收到总部通知，请协助推进一项确认工作：
+
+🔹 事项：总部高星部课论坛（10月12-15日）
+🔹 对象：三部入围的 8 位部课长（详见刚刚抄送大家的邮件）
+
+📌 请各位内勤推进以下 2 步：
+1. 查收邮件，认领对接各自片区的入围主管；
+2. 逐一沟通，确认其是否准时、全程参会（排查有无业务冲突或请假情况）。
+
+⏰ 反馈截止：下周一（9月14日）17:00 前
+
+📝 反馈格式（微信直接私信发我即可）：
+【主管姓名】确认参会 / 不能参会（说明原因）
+
+收到请回复，辛苦大家！</pre>
+      </div>
+
+      <!-- Option 2 -->
+      <div class="p-3 bg-dark-800 rounded-xl border border-dark-700 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-indigo-300">方案二：群接龙打卡版</span>
+          <button onclick="copyRelayText()" class="px-2 py-1 rounded bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 text-[10px] font-bold">
+            📋 复制接龙
+          </button>
+        </div>
+        <pre id="wx-relay-text" class="text-[11px] text-slate-300 whitespace-pre-wrap font-sans bg-dark-900 p-2.5 rounded border border-dark-700 leading-relaxed select-all">#接龙
+三部高星部课论坛（10月12-15日）参会确认
+截止时间：下周一（9月14日）17:00前
+
+请各位责任内勤沟通后在此跟帖接龙：
+
+1. 【主管1】对接内勤：确认参会
+2. 【主管2】对接内勤：
+3. 【主管3】对接内勤：
+4. 【主管4】对接内勤：
+5. 【主管5】对接内勤：
+6. 【主管6】对接内勤：
+7. 【主管7】对接内勤：
+8. 【主管8】对接内勤：</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive 8-Person Tracker Table (Saves to Phone LocalStorage) -->
+  <div class="bg-dark-850 rounded-2xl border border-dark-700 p-4 space-y-3">
+    <div class="flex items-center justify-between border-b border-dark-700 pb-2">
+      <div>
+        <h2 class="text-xs md:text-sm font-bold text-white">📋 8 位部课长参会确认实时跟踪表</h2>
+        <p class="text-[10px] text-slate-400">手机端直接修改状态与备注，数据实时自动保存在本地</p>
+      </div>
+      <button onclick="resetTrackerData()" class="text-[10px] text-slate-500 hover:text-rose-400">重置表格</button>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-xs text-left">
+        <thead class="bg-dark-800 text-slate-400 text-[11px]">
+          <tr>
+            <th class="p-2.5 rounded-l-lg">序号</th>
+            <th class="p-2.5">部课长姓名</th>
+            <th class="p-2.5">对接内勤</th>
+            <th class="p-2.5">参会状态</th>
+            <th class="p-2.5 rounded-r-lg">备注说明 / 冲突协调</th>
+          </tr>
+        </thead>
+        <tbody id="tracker-tbody" class="divide-y divide-dark-700/60">
+          <!-- Rendered via JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Upward Report Template for Monday -->
+  <div class="bg-dark-850 rounded-2xl border border-dark-700 p-4 space-y-2">
+    <div class="flex items-center justify-between border-b border-dark-700 pb-2">
+      <span class="text-xs font-bold text-emerald-400">📤 下周一（9月14日）向上级领导汇报模板</span>
+      <button onclick="copyReportText()" class="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 text-xs font-bold">📋 复制汇报</button>
+    </div>
+    <pre id="upward-report-text" class="text-[11px] text-slate-300 whitespace-pre-wrap font-sans bg-dark-900 p-3 rounded-lg border border-dark-700 leading-relaxed select-all">【关于三部参加总部三好五星高星部课论坛情况的反馈】
+
+领导好！
+关于总部拟于10月12-15日召开的“三好五星高星部课论坛”，三部入围的 8 位部课长已全部沟通完毕并完成参会锁定，具体反馈如下：
+
+1. 参会确认：8 位入围主管已全部确认准时全程参会，无请假缺席情况；
+2. 队伍安排：各部课已提前做好出差期间的团队出勤打卡与日常业绩督导预案；
+3. 详细回执表已随邮件正式回传。
+
+特此汇报，感谢领导支持！
+（汇报人：三部培训内勤 Andre / 2026年9月14日）</pre>
+  </div>
+
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-dark-800 border border-amber-500/40 text-slate-100 px-4 py-3 rounded-xl shadow-2xl text-xs flex items-center gap-2">
+    <span>✅</span> <span id="toast-msg">已复制到剪贴板</span>
+  </div>
+
+  <script>
+    const defaultData = [
+      { id: 1, name: "主管 1", staff: "内勤A", status: "confirmed", note: "已确认准时参会" },
+      { id: 2, name: "主管 2", staff: "内勤B", status: "confirmed", note: "队伍晨夕会已托付助理" },
+      { id: 3, name: "主管 3", staff: "内勤C", status: "pending", note: "下午外勤拜访，约17:00回电" },
+      { id: 4, name: "主管 4", staff: "内勤A", status: "confirmed", note: "已确认" },
+      { id: 5, name: "主管 5", staff: "内勤D", status: "pending", note: "待电话摸排" },
+      { id: 6, name: "主管 6", staff: "内勤B", status: "coordinating", note: "原定客户面谈协调中" },
+      { id: 7, name: "主管 7", staff: "内勤C", status: "confirmed", note: "已确认" },
+      { id: 8, name: "主管 8", staff: "内勤D", status: "pending", note: "待电话摸排" }
+    ];
+
+    let trackerData = [];
+
+    window.addEventListener("DOMContentLoaded", () => {
+      loadTrackerData();
+      renderTable();
+    });
+
+    function loadTrackerData() {
+      const cached = localStorage.getItem("sanhao_tracker_data");
+      if (cached) {
+        try { trackerData = JSON.parse(cached); return; } catch(e){}
+      }
+      trackerData = JSON.parse(JSON.stringify(defaultData));
+    }
+
+    function saveTrackerData() {
+      localStorage.setItem("sanhao_tracker_data", JSON.stringify(trackerData));
+      renderTable();
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById("tracker-tbody");
+      let confirmedCount = 0;
+
+      tbody.innerHTML = trackerData.map((item, index) => {
+        if (item.status === 'confirmed') confirmedCount++;
+
+        return `
+          <tr class="hover:bg-dark-800/60 transition-colors">
+            <td class="p-2.5 font-mono text-slate-500">${item.id}</td>
+            <td class="p-2.5">
+              <input type="text" value="${item.name}" onchange="updateItem(${index}, 'name', this.value)" class="bg-transparent border-b border-transparent focus:border-amber-500 text-white font-bold outline-none w-24 text-xs">
+            </td>
+            <td class="p-2.5">
+              <input type="text" value="${item.staff}" onchange="updateItem(${index}, 'staff', this.value)" class="bg-transparent border-b border-transparent focus:border-amber-500 text-slate-300 outline-none w-20 text-xs">
+            </td>
+            <td class="p-2.5">
+              <select onchange="updateItem(${index}, 'status', this.value)" class="bg-dark-800 border border-dark-600 rounded px-2 py-1 text-[11px] font-bold ${item.status === 'confirmed' ? 'text-emerald-400' : (item.status === 'coordinating' ? 'text-amber-400' : 'text-slate-400')} outline-none">
+                <option value="confirmed" ${item.status === 'confirmed' ? 'selected' : ''}>✅ 已确认参会</option>
+                <option value="coordinating" ${item.status === 'coordinating' ? 'selected' : ''}>⏳ 协调中</option>
+                <option value="pending" ${item.status === 'pending' ? 'selected' : ''}>⏳ 待触达</option>
+                <option value="declined" ${item.status === 'declined' ? 'selected' : ''}>❌ 请假/无法参会</option>
+              </select>
+            </td>
+            <td class="p-2.5">
+              <input type="text" value="${item.note || ''}" placeholder="点击输入备注..." onchange="updateItem(${index}, 'note', this.value)" class="bg-transparent border-b border-transparent focus:border-amber-500 text-slate-400 outline-none w-full text-xs">
+            </td>
+          </tr>
+        `;
+      }).join("");
+
+      document.getElementById("stat-confirmed-count").innerText = `${confirmedCount} / 8 位`;
+    }
+
+    function updateItem(index, key, val) {
+      trackerData[index][key] = val;
+      localStorage.setItem("sanhao_tracker_data", JSON.stringify(trackerData));
+      renderTable();
+      showToast("已保存更新");
+    }
+
+    function resetTrackerData() {
+      if (confirm("确认重置为初始数据？")) {
+        trackerData = JSON.parse(JSON.stringify(defaultData));
+        saveTrackerData();
+        showToast("已重置表格");
+      }
+    }
+
+    function copyNoticeText() {
+      const text = document.getElementById("wx-notice-text").innerText;
+      navigator.clipboard.writeText(text);
+      showToast("已复制极简通知文案");
+    }
+
+    function copyRelayText() {
+      const text = document.getElementById("wx-relay-text").innerText;
+      navigator.clipboard.writeText(text);
+      showToast("已复制群接龙格式");
+    }
+
+    function copyReportText() {
+      const text = document.getElementById("upward-report-text").innerText;
+      navigator.clipboard.writeText(text);
+      showToast("已复制向上汇报模板");
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      document.getElementById("toast-msg").innerText = msg;
+      toast.classList.remove("translate-y-20", "opacity-0");
+      setTimeout(() => { toast.classList.add("translate-y-20", "opacity-0"); }, 2000);
+    }
+  </script>
+</body>
+</html>

@@ -11,6 +11,17 @@
     "status": "active"
   },
   {
+    "id": "forum_tracker",
+    "title": "三好五星论坛参会确认看板",
+    "category": "efficiency",
+    "icon": "📋",
+    "tag": "内部任务推进",
+    "badge": "9.14截止",
+    "url": "forum/index.html",
+    "desc": "三部8位入围部课长参会确认、微信极简通知/接龙一键复制、8人实时核销看板。",
+    "status": "active"
+  },
+  {
     "id": "sports_calendar",
     "title": "国字号赛程日历 (足球 ＆ 篮球)",
     "category": "efficiency",
