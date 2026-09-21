@@ -994,10 +994,13 @@ safe-buffer/index.js:
       let mqttClient = null;
 
       try {
-        mqttClient = mqtt.connect('wss://broker.emqx.io:8084/mqtt', {
+        // 智能双端口连接：优先标准 443 端口 (防止移动4G/5G拦截非标8084端口)
+        const brokerUrl = (location.protocol === 'https:' || true) ? 'wss://broker.emqx.io/mqtt' : 'wss://broker.emqx.io:8084/mqtt';
+        mqttClient = mqtt.connect(brokerUrl, {
           clientId: 'shuqian_screen_' + Math.random().toString(16).substr(2, 8),
           clean: true,
-          connectTimeout: 5000
+          keepalive: 30,
+          connectTimeout: 6000
         });
 
         const TOPIC_JOIN = `shuqian/${roomId}/join`;
