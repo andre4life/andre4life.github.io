@@ -57,6 +57,7 @@ push_cmd = f'git -c credential.helper= push "{AUTH_URL}" main'
 push_res = run(push_cmd, check=False)
 
 if push_res.returncode == 0:
+    run("git update-ref refs/remotes/origin/main HEAD", check=False)
     print("==================================================")
     print("部署成功！")
     print("个人数字中枢总链接: https://andre4life.github.io/")
