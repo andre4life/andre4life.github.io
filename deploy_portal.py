@@ -45,7 +45,8 @@ run("git add -A")
 status_res = run("git status --porcelain", check=False)
 
 if status_res.stdout.strip():
-    run('git commit -m "fix: align real-time Asian Games kickoff dates (Men Basketball Sep 10-20, China vs Kazakhstan Sep 11 10:00 CST)"')
+    commit_msg = sys.argv[1] if len(sys.argv) > 1 else "feat: update sports calendar to 2026.10-2027.04 with U17 WWC countdown, FIBA W5 & Asian Cup prep"
+    run(f'git commit -m "{commit_msg}"')
     print("本地变更已完成提交")
 else:
     print("无新变更需要提交")

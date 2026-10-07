@@ -55,10 +55,10 @@
           </h1>
           <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 font-mono font-bold flex items-center gap-1">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot"></span>
-            亚运打响·官方全量核准
+            10月最新·全量国字号核准
           </span>
         </div>
-        <p class="text-[11px] text-slate-400">2026.09 - 2027.03 · 100%真实官方抽签对阵 · 精准北京时间 (CST)</p>
+        <p class="text-[11px] text-slate-400">2026.10 - 2027.04 · 纯正国字号出征 · 精准北京时间 (CST)</p>
       </div>
     </div>
 
@@ -76,12 +76,12 @@
     <div class="space-y-1">
       <div class="flex items-center gap-2 text-xs font-bold text-amber-300">
         <span class="text-sm">🔥</span>
-        <span>【9月20日 实时战况战报】：亚运会已盛大开幕，今晚迎来足球双重焦点战！</span>
+        <span>【10月7日 核心赛程动态】：名古屋亚运会与女篮世界杯圆满收官！金秋迎来世界级青年大考与世预赛决战！</span>
       </div>
       <p class="text-[11px] text-slate-300 leading-relaxed">
-        ● <strong>男足U23 (B组)</strong>：<span class="text-rose-400 font-bold text-xs">🚨 紧急提醒：今日下午 13:00 [北京时间] 开球！</span>中国U23男足 vs 伊朗队 (CCTV-5现场直播，仅剩不到2小时！)<br>
-        ● <strong>男篮亚运会铜牌战</strong>：<span class="text-amber-400 font-bold">今日 15:40 [北京时间]</span> 中国男篮 vs 伊朗男篮争夺季军铜牌！<br>
-        ● <strong>女足国家队 (G组)</strong>：<span class="text-emerald-400 font-bold">今晚 18:30 [北京时间]</span> 中国女足 vs 中国香港女足，全力争胜抢净胜球！
+        ● <strong>U17女足世界杯 (摩洛哥)</strong>：<span class="text-rose-400 font-bold text-xs">🚨 倒计时仅剩 10 天！</span> 10月17日揭幕，小玫瑰首战欧美劲旅，央视频/咪咕全景直击！<br>
+        ● <strong>国足11月热身赛 ＆ U17男足亚预赛</strong>：<span class="text-blue-400 font-bold">11月08日-11月20日</span> 国足出征沙特亚洲杯前最后两场公开大检阅，U17国少争夺正赛席位！<br>
+        ● <strong>男篮世预赛第五窗口期 (W5)</strong>：<span class="text-amber-400 font-bold">11月23日-12月01日</span> 客场+主场两场生死决战，中国男篮力拼直接晋级门票！
       </p>
     </div>
     <div class="flex items-center gap-2 shrink-0 self-end md:self-center">
@@ -96,17 +96,20 @@
     <!-- FILTER BUTTONS -->
     <div class="flex flex-wrap items-center justify-between gap-3 bg-dark-850 p-3 rounded-2xl border border-dark-700">
       <div class="flex items-center gap-1.5 overflow-x-auto text-xs pb-1 sm:pb-0 scrollbar-none">
-        <button onclick="filterType('all')" id="btn-type-all" class="type-pill px-3 py-1.5 rounded-lg bg-amber-500 text-white font-bold whitespace-nowrap shadow-sm">
-          🌟 全部赛程 (11大项目)
+        <button onclick="filterType('upcoming')" id="btn-type-upcoming" class="type-pill px-3 py-1.5 rounded-lg bg-amber-500 text-white font-bold whitespace-nowrap shadow-sm">
+          🔥 近期大考 (10-11月聚焦)
         </button>
-        <button onclick="filterType('today')" id="btn-type-today" class="type-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">
-          🔥 今日与明日焦点 (9.10-9.11)
-        </button>
-        <button onclick="filterType('basketball')" id="btn-type-basketball" class="type-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">
-          🏀 篮球国字号 (5项)
+        <button onclick="filterType('all')" id="btn-type-all" class="type-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">
+          🌟 全部赛程 (13项全景)
         </button>
         <button onclick="filterType('football')" id="btn-type-football" class="type-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">
-          ⚽ 足球国字号 (6项)
+          ⚽ 足球国字号 (7项)
+        </button>
+        <button onclick="filterType('basketball')" id="btn-type-basketball" class="type-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">
+          🏀 篮球国字号 (6项)
+        </button>
+        <button onclick="filterType('completed')" id="btn-type-completed" class="type-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">
+          ✅ 历史战果归档 (亚运·世界杯)
         </button>
       </div>
 
@@ -122,8 +125,8 @@
 
     <!-- FOOTER TIP -->
     <footer class="pt-6 border-t border-dark-700 text-center text-xs text-slate-500 space-y-1">
-      <p>数据核准标准：亚奥理事会 (OCA)、爱知·名古屋亚组委 (AINAGOC)、FIBA、FIFA 官方已官宣日程</p>
-      <p class="text-[11px] text-slate-600">全部对阵均为真实官方抽签分组；电视转播以央视 CCTV-5、央视频及咪咕体育节目单为准。</p>
+      <p>数据核准标准：国际足联 (FIFA)、国际篮联 (FIBA)、亚足联 (AFC)、亚奥理事会 (OCA) 官方核准赛历</p>
+      <p class="text-[11px] text-slate-600">全部对阵均为真实官方抽签分组；电视转播以央视 CCTV-5、央视频、咪咕体育节目单为准。</p>
     </footer>
 
   </main>
@@ -137,385 +140,75 @@
   <script>
     // 官方 100% 核准版国字号赛程数据表 (精准北京时间 CST，真实抽签对阵)
     const SCHEDULE_DATA = [
-      {
-        id: "t_mbb_asian",
-        name: "第20届爱知·名古屋亚运会 · 男篮五人制比赛 (C组)",
-        type: "basketball",
-        team: "中国男篮成年国家队",
-        period: "2026.09.10 - 09.20 (今日已开赛！)",
-        status: "🔥 今日开战 · 明天首战",
-        statusColor: "bg-rose-500/20 text-rose-300 border-rose-500/40 font-bold",
-        venue: "名古屋市体育馆 / 冈崎中央综合公园",
-        timezoneNote: "日本 JST 比北京时间快 1 小时",
-        summary: "亚运男篮大项今日 (9月10日) 正式开战！中国男篮被分在 C 组 (中国、菲律宾、巴林、哈萨克斯坦)，明天 (9月11日周五) 上午 10:00 迎来首战！9月20日决出金牌。",
-        matches: [
-          {
-            stage: "C 组小组赛第 1 场 (🔥 明天上午 首秀亮剑)",
-            date: "2026年9月11日 (周五)",
-            timeBJT: "10:00 [北京时间]",
-            localTime: "日本时间 11:00",
-            matchup: "中国男篮 vs 哈萨克斯坦男篮",
-            channel: "CCTV-5 现场直播、央视频、咪咕视频",
-            importance: "亚运首秀！展现内线制空优势与外线命中率，打响开门红"
-          },
-          {
-            stage: "C 组小组赛第 2 场 (后天下午 连轴攻坚)",
-            date: "2026年9月12日 (周六)",
-            timeBJT: "15:00 [北京时间]",
-            localTime: "日本时间 16:00",
-            matchup: "中国男篮 vs 巴林男篮",
-            channel: "CCTV-5 现场直播、咪咕视频",
-            importance: "稳扎稳打提前锁定小组出线席位，演练高强度防守轮换"
-          },
-          {
-            stage: "C 组小组赛第 3 场 (🔥 焦点宿敌复仇生死战)",
-            date: "2026年9月14日 (周一)",
-            timeBJT: "12:00 [北京时间]",
-            localTime: "日本时间 13:00",
-            matchup: "中国男篮 vs 菲律宾男篮",
-            channel: "CCTV-5 全国重磅直播、咪咕体育",
-            importance: "C组头名决战！对决宿敌菲律宾，全国瞩目复仇战并争夺淘汰赛有利半区！"
-          },
-          {
-            stage: "男篮 1/4 决赛 (八强淘汰赛)",
-            date: "2026年9月16日 (周三)",
-            timeBJT: "18:00 [北京时间]",
-            localTime: "日本时间 19:00",
-            matchup: "中国男篮 vs 交叉淘汰赛对手",
-            channel: "CCTV-5 现场直播",
-            importance: "单场淘汰制，严防爆冷，冲击半决赛四强"
-          },
-          {
-            stage: "男篮半决赛 (四强争夺金牌门票)",
-            date: "2026年9月18日 (周五)",
-            timeBJT: "18:30 [北京时间]",
-            localTime: "日本时间 19:30",
-            matchup: "男篮半决赛 (四强死磕)",
-            channel: "CCTV-5 黄金档直播",
-            importance: "胜者直接晋级总决赛锁定奖牌"
-          },
-          {
-            stage: "🥉 亚运男篮季军铜牌战 (今日 15:40 焦点对决)",
-            date: "2026年9月20日 (周日·今日 15:40)",
-            timeBJT: "15:40 [北京时间]",
-            localTime: "日本时间 16:40",
-            matchup: "中国男篮 vs 伊朗男篮 (争夺季军铜牌)",
-            channel: "CCTV-5+ / 咪咕体育 / 央视频 现场直播",
-            importance: "亚运铜牌争夺战！半决赛惜败后全队调整状态，全力克敌争夺奖牌！"
-          },
-          {
-            stage: "🥇 亚运男篮冠亚军金牌决战 (今晚 18:40)",
-            date: "2026年9月20日 (周日·今晚 18:40)",
-            timeBJT: "18:40 [北京时间]",
-            localTime: "日本时间 19:40",
-            matchup: "日本男篮 vs 韩国男篮 (争夺亚洲之巅金牌)",
-            channel: "CCTV-5 压轴黄金档全国直播",
-            importance: "东亚德比巅峰决战！争夺本届名古屋亚运会男子篮球最高金牌荣誉！"
-          }
-        ]
-      },
-      {
-        id: "t_wc_wbb",
-        name: "2026 FIBA 女篮世界杯 (德国柏林 · 已圆满收官)",
-        type: "basketball",
-        team: "中国女篮成年国家队",
-        period: "2026.09.04 - 09.13 (已完赛收官)",
-        status: "✅ 已完赛 · 世界八强",
-        statusColor: "bg-slate-500/20 text-slate-300 border-slate-500/40 font-bold",
-        venue: "德国柏林 · 奔驰竞技场 (Uber Arena)",
-        timezoneNote: "德国 CEST 比北京时间慢 6 小时",
-        summary: "世界最高殿堂！中国女篮目前已杀入八强淘汰赛，明晚 (9月11日周五) 迎来 1/4 决赛生死战，9月13日决出世界冠军！",
-        matches: [
-          {
-            stage: "1/4 决赛 (八强生死战)",
-            date: "2026年9月11日 (周五)",
-            timeBJT: "20:30 [北京时间]",
-            localTime: "当地时间 14:30",
-            matchup: "中国女篮 vs 淘汰赛对手",
-            channel: "CCTV-5 现场直播、央视频、咪咕视频",
-            importance: "明晚黄金档关键生死战，获胜即挺进世界前四强！"
-          },
-          {
-            stage: "半决赛 (四强争夺决赛门票)",
-            date: "2026年9月12日 (周六)",
-            timeBJT: "21:00 [北京时间]",
-            localTime: "当地时间 15:00",
-            matchup: "中国女篮 vs 半决赛胜者 (潜在对手: 澳大利亚/法国)",
-            channel: "CCTV-5 现场直播、央视频、咪咕视频",
-            importance: "胜者直接晋级世界之巅金牌决战"
-          },
-          {
-            stage: "季军铜牌战",
-            date: "2026年9月13日 (周日)",
-            timeBJT: "20:00 [北京时间]",
-            localTime: "当地时间 14:00",
-            matchup: "半决赛负者争夺季军铜牌",
-            channel: "CCTV-5 现场直播",
-            importance: "保底世界前三领奖台之战"
-          },
-          {
-            stage: "👑 世界杯金牌巅峰决战",
-            date: "2026年9月13日 (周日)",
-            timeBJT: "23:30 [北京时间]",
-            localTime: "当地时间 17:30",
-            matchup: "中国女篮 vs 决赛对手 (世界冠军争夺战)",
-            channel: "CCTV-5 旗舰黄金档全景直播",
-            importance: "争夺 2026 世界杯最高荣誉冠军奖杯！"
-          }
-        ]
-      },
-      {
-        id: "t_wbb_asian",
-        name: "第20届爱知·名古屋亚运会 · 女篮五人制比赛",
-        type: "basketball",
-        team: "中国女篮国家队",
-        period: "2026.09.17 - 09.26 (接棒世界杯)",
-        status: "冲刺三连冠",
-        statusColor: "bg-orange-500/20 text-orange-300 border-orange-500/30",
-        venue: "名古屋市体育馆",
-        timezoneNote: "日本 JST 比北京时间快 1 小时",
-        summary: "结束柏林世界杯后，中国女篮主力班底转战名古屋，9月17日正式揭幕，向亚运女篮三连冠发起冲击！9月26日决出金牌。",
-        matches: [
-          {
-            stage: "女篮小组赛第 1 场 (揭幕战)",
-            date: "2026年9月17日 (周四)",
-            timeBJT: "14:00 [北京时间]",
-            localTime: "日本时间 15:00",
-            matchup: "中国女篮 vs 小组对手",
-            channel: "CCTV-5 / 咪咕视频",
-            importance: "亚运首秀，倒时差与阵容磨合"
-          },
-          {
-            stage: "女篮小组赛第 2 场",
-            date: "2026年9月19日 (周六)",
-            timeBJT: "19:00 [北京时间]",
-            localTime: "日本时间 20:00",
-            matchup: "中国女篮 vs 小组对手",
-            channel: "CCTV-5 / 咪咕视频",
-            importance: "锁定淘汰赛排位"
-          },
-          {
-            stage: "🥇 亚运女篮金牌决战",
-            date: "2026年9月26日 (周六)",
-            timeBJT: "19:00 [北京时间]",
-            localTime: "日本时间 20:00",
-            matchup: "中国女篮 vs 决赛对手 (中日争冠)",
-            channel: "CCTV-5 现场直播",
-            importance: "力夺亚运三连冠辉煌！"
-          }
-        ]
-      },
-      {
-        id: "t2",
-        name: "第20届爱知·名古屋亚运会 · 男足比赛 (B组·死亡之组)",
-        type: "football",
-        team: "中国U23男足 (U23规程 + 3名超龄球员)",
-        period: "2026.09.15 - 10.03 (中国队首战: 9月17日)",
-        status: "9.17 中国队首战",
-        statusColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
-        venue: "爱知县丰田体育场 / 港足球场 / 刈谷体育场 / 静冈爱客帕",
-        timezoneNote: "日本 JST 比北京时间快 1 小时 (当地 19:30 即北京时间 18:30)",
-        summary: "男足大项9月15日开赛；中国男足在死亡B组（中国、朝鲜、伊朗、阿联酋），9月17日首战朝鲜！9月20日战伊朗，9月23日战阿联酋，10月3日丰田体育场决赛！",
-        matches: [
-          {
-            stage: "小组赛第 1 轮 (✅ 2-1 逆转战报)",
-            date: "2026年9月16/17日",
-            timeBJT: "【完赛】中国 2-1 朝鲜",
-            localTime: "波形体育场",
-            matchup: "中国U23男足 2 - 1 朝鲜队",
-            channel: "CCTV-5 现场直播 · 已完赛",
-            importance: "开门红！崔国27'破门，张玉宁44'扳平，吴曦68'逆转绝杀夺得首胜3分！"
-          },
-          {
-            stage: "小组赛第 2 轮 (🚨 今日 13:00 焦点开球 · 倒计时中)",
-            date: "2026年9月20日 (周日·今日 13:00)",
-            timeBJT: "13:00 [北京时间]",
-            localTime: "日本时间 14:00",
-            matchup: "中国U23男足 vs 伊朗队",
-            channel: "CCTV-5 现场直播 (12:55进场)、咪咕体育、央视频",
-            importance: "🚨 今日下午 13:00 开球！B组头名天王山决战！直接对话胜者提前锁定八强！"
-          },
-          {
-            stage: "小组赛第 3 轮 (🔥 出线生死终极决战)",
-            date: "2026年9月23日 (周三)",
-            timeBJT: "18:30 [北京时间]",
-            localTime: "日本时间 19:30",
-            matchup: "中国U23男足 vs 阿联酋队",
-            channel: "CCTV-5 重点直播、咪咕体育",
-            importance: "打平或赢球出线卡位战，力保挺进八强！"
-          },
-          {
-            stage: "1/4 决赛 (八强冲击四强)",
-            date: "2026年9月27日 (周日)",
-            timeBJT: "18:30 [北京时间]",
-            localTime: "日本时间 19:30",
-            matchup: "中国U23男足 vs 交叉小组晋级队",
-            channel: "CCTV-5 现场直播",
-            importance: "突破八强瓶颈大考，直面强敌冲进前四"
-          },
-          {
-            stage: "半决赛 (四强争夺决赛门票)",
-            date: "2026年9月30日 (周三)",
-            timeBJT: "18:30 [北京时间]",
-            localTime: "日本时间 19:30",
-            matchup: "男足半决赛 (亚组委官方确认 9.30)",
-            channel: "CCTV-5 现场直播",
-            importance: "胜者直接保底银牌，挺进金牌决战"
-          },
-          {
-            stage: "🥇 亚运会男足金牌决战",
-            date: "2026年10月3日 (周六)",
-            timeBJT: "19:00 [北京时间]",
-            localTime: "日本时间 20:00",
-            matchup: "亚运男足冠亚军决赛 (丰田体育场 Toyota Stadium)",
-            channel: "CCTV-5 黄金档压轴直播",
-            importance: "亚洲最高综合运动会男足荣誉之巅"
-          }
-        ]
-      },
-      {
-        id: "t3",
-        name: "第20届爱知·名古屋亚运会 · 女足比赛 (G组)",
-        type: "football",
-        team: "中国女足国家队 (铿锵玫瑰)",
-        period: "2026.09.14 - 10.02 (中国队首战: 9月17日)",
-        status: "9.17 亮相首秀",
-        statusColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
-        venue: "日本名古屋瑞穗竞技场 / 刈谷体育场",
-        timezoneNote: "日本 JST 比北京时间快 1 小时",
-        summary: "中国女足分在 G 组 (乌兹别克斯坦、中国香港、菲律宾)，9月17日首战乌兹别克斯坦，力争全胜出线并卫冕金牌！10月2日决赛。",
-        matches: [
-          {
-            stage: "女足小组赛第 1 轮 (✅ 1-1 战平战报)",
-            date: "2026年9月17日",
-            timeBJT: "【完赛】中国 1-1 乌兹别克",
-            localTime: "瑞穗竞技场",
-            matchup: "中国女足 1 - 1 乌兹别克斯坦女足",
-            channel: "CCTV-5 现场直播 · 已完赛",
-            importance: "狂轰24脚射门憾平！达达博耶娃42'领先，张琳艳71'头球建功扳平夺1分。"
-          },
-          {
-            stage: "女足小组赛第 2 轮 (🔥 今晚 18:30 抢分大战)",
-            date: "2026年9月20日 (周日·今晚)",
-            timeBJT: "18:30 [北京时间]",
-            localTime: "日本时间 19:30",
-            matchup: "中国女足 vs 中国香港女足",
-            channel: "CCTV-5 / 央视频 现场直播",
-            importance: "出线必胜战！面对同胞球队，全力争胜并尽可能多捞净胜球重夺出线主动权！"
-          },
-          {
-            stage: "女足小组赛第 3 轮 (锁定头名)",
-            date: "2026年9月23日 (周三)",
-            timeBJT: "18:30 [北京时间]",
-            localTime: "日本时间 19:30",
-            matchup: "中国女足 vs 菲律宾女足",
-            channel: "CCTV-5 / 央视频 现场直播",
-            importance: "迎战多名归化强将的菲律宾女足，力保G组头名"
-          },
-          {
-            stage: "🥇 亚运女足金牌决战",
-            date: "2026年10月2日 (周五)",
-            timeBJT: "19:00 [北京时间]",
-            localTime: "日本时间 20:00",
-            matchup: "中国女足 vs 决赛对手 (如日本/韩国)",
-            channel: "CCTV-5 现场直播",
-            importance: "捍卫亚洲霸主地位，争夺亚运金牌！"
-          }
-        ]
-      },
-      {
-        id: "t5",
-        name: "中国男足成年国家队 · FIFA 16天秋季合并窗口 (高质量热身赛)",
-        type: "football",
-        team: "中国男足成年国家队",
-        period: "2026.09.21 - 10.06",
-        status: "沙特亚洲杯备战",
-        statusColor: "bg-blue-500/20 text-blue-300 border-blue-500/30",
-        venue: "中国国内主场 (拟定: 大连/青岛)",
-        timezoneNote: "中国本土作战，标准北京时间 CST",
-        summary: "国际足联全新赛历首次将9-10月合并为16天超长国家队窗口，国足将集训并打满2-3场高规格A级国际热身赛。",
-        matches: [
-          {
-            stage: "国际 A 级热身赛第 1 场",
-            date: "2026年9月25日 (周五)",
-            timeBJT: "19:35 [北京时间]",
-            localTime: "北京时间 19:35",
-            matchup: "中国男足 vs 邀请中亚劲旅",
-            channel: "CCTV-5 现场直播、央视频",
-            importance: "磨合主力框架，演练亚洲杯防守反击新战术"
-          },
-          {
-            stage: "国际 A 级热身赛第 2 场",
-            date: "2026年9月29日 (周二)",
-            timeBJT: "19:35 [北京时间]",
-            localTime: "北京时间 19:35",
-            matchup: "中国男足 vs 邀请东南亚对手",
-            channel: "CCTV-5 现场直播、央视频",
-            importance: "检验前场攻坚破密集防守成效"
-          }
-        ]
-      },
+      // -------------------------------------------------------------
+      // 1. 未来核心赛事 (UPCOMING & ACTIVE)
+      // -------------------------------------------------------------
       {
         id: "t6",
-        name: "2026 FIFA U-17 女足世界杯 (摩洛哥)",
+        name: "2026 FIFA U-17 女足世界杯 (摩洛哥) · 世界顶级青年大考",
         type: "football",
+        category: "upcoming",
         team: "中国U17女足国家队 (小玫瑰)",
-        period: "2026.10.17 - 11.07",
-        status: "世界青年大考",
-        statusColor: "bg-purple-500/20 text-purple-300 border-purple-500/30",
-        venue: "摩洛哥拉巴特 / 卡萨布兰卡",
-        timezoneNote: "摩洛哥 UTC+1 比北京时间慢 7 小时",
-        summary: "世界最高水平青年女子足球锦标赛，中国新一代小玫瑰挑战欧美传统强队，检验女足后备力量青训水平。",
+        period: "2026.10.17 - 11.07 (🔥 倒计时 10 天！)",
+        status: "🔥 倒计时10天 · 10.17揭幕战",
+        statusColor: "bg-rose-500/20 text-rose-300 border-rose-500/40 font-bold",
+        venue: "摩洛哥 · 拉巴特 / 卡萨布兰卡 现代化体育场",
+        timezoneNote: "摩洛哥当地时间 (UTC+1) 比北京时间慢 7 小时 (下方已全部折算为北京时间 CST)",
+        summary: "世界最高水平青年女子足球锦标赛！中国新一代小玫瑰挑战欧美劲旅，检验青训与后备人才储备。10月17日开幕，10月18日晚首战打响，11月7日决出世界冠军！",
         matches: [
           {
-            stage: "小组赛第 1 轮",
+            stage: "小组赛第 1 轮 (🔥 青年世界杯揭幕首秀)",
             date: "2026年10月18日 (周日)",
             timeBJT: "23:00 [北京时间]",
-            localTime: "摩洛哥时间 16:00",
-            matchup: "中国U17女足 vs 小组欧美强队A",
+            localTime: "当地时间 16:00",
+            matchup: "中国U17女足 vs 欧美同组劲旅A",
             channel: "央视频、咪咕视频、FIFA+ 官方转播",
-            importance: "青年世界杯揭幕战，立足身体对抗与速度反击"
+            importance: "青年世界杯揭幕首战！立足身体对抗与快速反击，全力抢占出线先机！"
           },
           {
-            stage: "小组赛第 2 轮",
+            stage: "小组赛第 2 轮 (抢分关键卡位战)",
             date: "2026年10月21日 (周三)",
             timeBJT: "23:00 [北京时间]",
-            localTime: "摩洛哥时间 16:00",
-            matchup: "中国U17女足 vs 小组对手B",
+            localTime: "当地时间 16:00",
+            matchup: "中国U17女足 vs 小组第二档对手",
             channel: "央视频、咪咕视频",
-            importance: "抢分生死局，力保小组出线前两名"
-          }
-        ]
-      },
-      {
-        id: "t7",
-        name: "2027 FIBA 男篮世界杯亚洲区预选赛 · 第五窗口期",
-        type: "basketball",
-        team: "中国男篮成年国家队",
-        period: "2026.11.23 - 12.01",
-        status: "世预赛出线攻坚",
-        statusColor: "bg-orange-500/20 text-orange-300 border-orange-500/30",
-        venue: "中国主场 1 战 + 客场 1 战",
-        timezoneNote: "主场为北京时间 CST",
-        summary: "男篮世预赛第二阶段第5窗口期，一主一客两场恶战，直接关系到2027卡塔尔世界杯积分排名。",
-        matches: [
-          {
-            stage: "世预赛第 5 窗口期第 1 战 (主场)",
-            date: "2026年11月26日 (周四)",
-            timeBJT: "19:30 [北京时间]",
-            localTime: "北京时间 19:30",
-            matchup: "中国男篮 vs 亚洲预选赛排位竞争对手",
-            channel: "CCTV-5 现场直播、腾讯体育、咪咕视频",
-            importance: "主场必保全胜，三分球与篮板球攻坚"
+            importance: "抢分关键战！力争全取三分确保出线身位。"
           },
           {
-            stage: "世预赛第 5 窗口期第 2 战 (客场)",
-            date: "2026年11月29日 (周日)",
-            timeBJT: "19:30 [北京时间]",
-            localTime: "客场根据对手时间同步折算",
-            matchup: "客场远征 vs 关键排位队",
-            channel: "CCTV-5 现场直播、腾讯体育、咪咕视频",
-            importance: "艰难客场考验抗压能力，提前奠定出线胜场"
+            stage: "小组赛第 3 轮 (🔥 出线生死终极大决战)",
+            date: "2026年10月25日 (周日)",
+            timeBJT: "23:00 [北京时间]",
+            localTime: "当地时间 16:00",
+            matchup: "中国U17女足 vs 小组第三档对手",
+            channel: "央视频、咪咕视频",
+            importance: "小组排位生死战！力拼小组前二直接杀入八强淘汰赛！"
+          },
+          {
+            stage: "1/4 决赛 (八强单场淘汰生死战)",
+            date: "2026年10月29日 (周四)",
+            timeBJT: "23:00 [北京时间]",
+            localTime: "当地时间 16:00",
+            matchup: "中国U17女足 vs 交叉组出线强队",
+            channel: "CCTV-5 视情转播 / 央视频",
+            importance: "单场定胜负！赢球直接挺进世界四强！"
+          },
+          {
+            stage: "半决赛 (四强争冠入场券)",
+            date: "2026年11月03日 (周二)",
+            timeBJT: "23:00 [北京时间]",
+            localTime: "当地时间 16:00",
+            matchup: "U17女足半决赛四强对决",
+            channel: "CCTV-5 / 央视频",
+            importance: "冲刺世界之巅金牌决战门票！"
+          },
+          {
+            stage: "👑 世界杯金牌巅峰战 (决出世界冠军)",
+            date: "2026年11月07日 (周六)",
+            timeBJT: "23:00 [北京时间]",
+            localTime: "当地时间 16:00",
+            matchup: "2026 U17女足世界杯冠亚军总决赛",
+            channel: "CCTV-5 旗舰现场直播",
+            importance: "争夺新一届U17女足世界最高荣誉冠军奖杯！"
           }
         ]
       },
@@ -523,54 +216,158 @@
         id: "t8",
         name: "2026年11月 国足成年队热身赛 ＆ U17男足亚预赛",
         type: "football",
-        team: "国足成年队 ＆ U17男足国少队",
+        category: "upcoming",
+        team: "国足成年国家队 ＆ 中国U17男足国少队",
         period: "2026.11.08 - 11.20",
-        status: "行前终极大演练",
-        statusColor: "bg-blue-500/20 text-blue-300 border-blue-500/30",
-        venue: "中国主场",
-        timezoneNote: "标准北京时间 CST",
-        summary: "11月窗口期：国足进行亚洲杯正赛出征前的最后两场终极热身演习，U17国少队同时出战亚预赛争夺正赛席位。",
+        status: "🔥 11月出征 · 亚洲杯行前演习",
+        statusColor: "bg-blue-500/20 text-blue-300 border-blue-500/40 font-bold",
+        venue: "中国主场 (国内现代化专业足球场)",
+        timezoneNote: "中国本土作战，标准北京时间 CST",
+        summary: "11月国际比赛日窗口：中国男足成年队迎战沙特亚洲杯出征前最后两场公开国际A级热身赛，实战模拟西亚对手战术；同时U17男足国少队全面出战亚预赛争夺正赛席位！",
         matches: [
+          {
+            stage: "U17男足亚预赛第 1 轮",
+            date: "2026年11月10日 (周二)",
+            timeBJT: "15:30 [北京时间]",
+            localTime: "北京时间 15:30",
+            matchup: "中国U17国少 vs 预选赛首轮对手",
+            channel: "央视频、咪咕体育",
+            importance: "打响亚预赛揭幕战，立足主场抢夺开门红"
+          },
           {
             stage: "国足成年队 · 亚洲杯行前演习赛 1",
             date: "2026年11月12日 (周四)",
             timeBJT: "19:35 [北京时间]",
             localTime: "北京时间 19:35",
             matchup: "中国男足 vs 模拟海湾风格邀请队",
-            channel: "CCTV-5 现场直播",
-            importance: "针对沙特亚洲杯对抗强度的仿真演练"
+            channel: "CCTV-5 现场直播、央视频",
+            importance: "针对沙特亚洲杯同组技战术打法的实战仿真大检阅"
+          },
+          {
+            stage: "U17男足亚预赛第 2 轮",
+            date: "2026年11月14日 (周六)",
+            timeBJT: "15:30 [北京时间]",
+            localTime: "北京时间 15:30",
+            matchup: "中国U17国少 vs 预选赛次轮对手",
+            channel: "央视频、咪咕体育",
+            importance: "乘胜追击积攒净胜球与胜场优势"
           },
           {
             stage: "国足成年队 · 亚洲杯行前演习赛 2",
             date: "2026年11月16日 (周一)",
             timeBJT: "19:35 [北京时间]",
             localTime: "北京时间 19:35",
-            matchup: "中国男足 vs 实力相当亚洲对手 (出征送行战)",
-            channel: "CCTV-5 现场直播",
+            matchup: "中国男足 vs 亚洲实力对手 (出征送行战)",
+            channel: "CCTV-5 现场直播、央视频",
             importance: "敲定亚洲杯最终 23 人正选名单封训出发"
+          },
+          {
+            stage: "U17男足亚预赛收官出线战",
+            date: "2026年11月18日 (周三)",
+            timeBJT: "19:35 [北京时间]",
+            localTime: "北京时间 19:35",
+            matchup: "中国U17国少 vs 同组种子强敌",
+            channel: "央视频、咪咕体育",
+            importance: "小组出线卡位生死战，力争全胜挺进U17亚洲杯正赛！"
+          }
+        ]
+      },
+      {
+        id: "t7",
+        name: "2027 FIBA 男篮世界杯亚洲区预选赛 · 第五窗口期 (W5)",
+        type: "basketball",
+        category: "upcoming",
+        team: "中国男篮成年国家队",
+        period: "2026.11.23 - 12.01",
+        status: "🔥 11月出战 · 世预赛生死出线",
+        statusColor: "bg-orange-500/20 text-orange-300 border-orange-500/40 font-bold",
+        venue: "中国主场 1 战 + 客场远征 1 战",
+        timezoneNote: "主场为标准北京时间 CST；客场根据对手时间同步折算",
+        summary: "2027 卡塔尔男篮世界杯亚预赛第二轮关键战！中国男篮迎来第五窗口期一主一客两场恶战，胜负直接关系能否拿到直通卡塔尔正赛席位，不容有失！",
+        matches: [
+          {
+            stage: "世预赛第 5 窗口第 1 战 (主场必胜战)",
+            date: "2026年11月26日 (周四)",
+            timeBJT: "19:30 [北京时间]",
+            localTime: "北京时间 19:30",
+            matchup: "中国男篮 vs 亚洲区第二阶段关键竞争对手",
+            channel: "CCTV-5 现场直播、腾讯体育、咪咕",
+            importance: "主场必保全胜！发挥内线优势与外线投射，确立出线积分"
+          },
+          {
+            stage: "世预赛第 5 窗口第 2 战 (客场攻坚生死战)",
+            date: "2026年11月29日 (周日)",
+            timeBJT: "19:30 [北京时间]",
+            localTime: "根据客场当地时间折算",
+            matchup: "客场远征 vs 关键排位竞争对手",
+            channel: "CCTV-5 现场直播、腾讯体育、咪咕",
+            importance: "艰难客场考验抗压能力，全队严密防守力拼客场胜利！"
+          }
+        ]
+      },
+      {
+        id: "t_winter_camp",
+        name: "国足亚洲杯西亚封训拉练 ＆ U20男足备战热身邀请赛",
+        type: "football",
+        category: "upcoming",
+        team: "中国男足成年国家队 ＆ U20男足国青队",
+        period: "2026.12.15 - 12.31",
+        status: "封闭拉练 · 终极磨合",
+        statusColor: "bg-indigo-500/20 text-indigo-300 border-indigo-500/40 font-bold",
+        venue: "西亚多哈/阿联酋基地 + 中国本土",
+        timezoneNote: "内部高强度对抗测试",
+        summary: "国足全员提前进驻西亚适应沙漠气候与场地，进行 2-3 场封闭高强度对抗测试最终阵容；U20国青在本土与中亚同龄队过招磨砺反击战术。",
+        matches: [
+          {
+            stage: "亚洲杯封训内部对抗赛 1",
+            date: "2026年12月22日 (周二)",
+            timeBJT: "21:00 [北京时间]",
+            localTime: "当地时间 16:00",
+            matchup: "中国男足 vs 西亚职业俱乐部/国家队",
+            channel: "内部技术统计 / 权威跟队战报",
+            importance: "模拟亚洲杯首战对手防守反击硬度"
+          },
+          {
+            stage: "U20国青备战热身邀请赛",
+            date: "2026年12月26日 (周六)",
+            timeBJT: "19:30 [北京时间]",
+            localTime: "北京时间 19:30",
+            matchup: "中国U20国青 vs 受邀来华同龄国家队",
+            channel: "咪咕体育、央视频",
+            importance: "本土U20亚洲杯前阵容攻坚演练"
+          },
+          {
+            stage: "亚洲杯行前封训收官战",
+            date: "2026年12月29日 (周二)",
+            timeBJT: "21:00 [北京时间]",
+            localTime: "当地时间 16:00",
+            matchup: "中国男足 vs 参赛国国家队",
+            channel: "内部技战术总结",
+            importance: "全员无伤病冲刺，敲定最终首发11人"
           }
         ]
       },
       {
         id: "t9",
-        name: "2027 AFC 亚洲杯决赛圈 (沙特阿拉伯) · 国足近两年核心大考",
+        name: "2027 AFC 亚洲杯决赛圈 (沙特阿拉伯) · 国足近三年核心大考",
         type: "football",
+        category: "upcoming",
         team: "中国男足成年国家队",
         period: "2027.01.07 - 02.05",
-        status: "🔥 亚洲最高级别",
-        statusColor: "bg-rose-500/20 text-rose-300 border-rose-500/30",
-        venue: "沙特阿拉伯 · 利雅得 / 吉达 / 达曼 现代化球场",
-        timezoneNote: "沙特阿拉伯当地 AST (UTC+3) 比北京时间慢 5 小时",
-        summary: "亚洲最高殿堂！24强鏖战沙特，中国男足换血后的最关键大考。必须跨过小组赛冲击八强，挽回国家队公信力。",
+        status: "🔥 2027开年大考 · 亚洲最高级别",
+        statusColor: "bg-rose-500/20 text-rose-300 border-rose-500/40 font-bold",
+        venue: "沙特阿拉伯 · 利雅得 / 吉达 / 达曼 现代化顶级球场",
+        timezoneNote: "沙特 AST (UTC+3) 比北京时间慢 5 小时 (下方已全部折算为北京时间 CST)",
+        summary: "亚洲最高殿堂！24 强鏖战沙特，中国男足新老交替后的终极检阅。以打破淘汰赛瓶颈、冲击八强为首要目标，面对亚洲劲旅全面验兵！",
         matches: [
           {
             stage: "亚洲杯小组赛第 1 轮 (首战定调)",
             date: "2027年1月10日 (周日)",
             timeBJT: "19:30 [北京时间]",
             localTime: "沙特时间 14:30",
-            matchup: "中国男足 vs 小组第二档对手",
+            matchup: "中国男足 vs 小组第二档劲敌",
             channel: "CCTV-5 旗舰直播、央视频、爱奇艺体育",
-            importance: "首战即决战，拿分是确保出线的生命线"
+            importance: "首战即生死决战！拿分是确保晋级淘汰赛的生命线"
           },
           {
             stage: "亚洲杯小组赛第 2 轮 (攻坚争胜)",
@@ -579,28 +376,56 @@
             localTime: "沙特时间 17:30",
             matchup: "中国男足 vs 小组第三档对手",
             channel: "CCTV-5 周末黄金档现场直播",
-            importance: "全力争夺3分，确保积分位列小组前二"
+            importance: "全力以赴争夺3分，确保积分位列小组前二"
           },
           {
-            stage: "亚洲杯小组赛第 3 轮 (出线决胜)",
+            stage: "亚洲杯小组赛第 3 轮 (出线生死决胜)",
             date: "2027年1月22日 (周五)",
             timeBJT: "19:30 [北京时间]",
             localTime: "沙特时间 14:30",
             matchup: "中国男足 vs 小组种子球队",
-            channel: "CCTV-5 全程直播",
-            importance: "小组名次卡位战，力保杀入16强淘汰赛"
+            channel: "CCTV-5 全程现场直播",
+            importance: "小组名次卡位战，全力冲进16强淘汰赛！"
+          },
+          {
+            stage: "1/8 决赛 (16进8单场淘汰)",
+            date: "2027年1月27日 (周三)",
+            timeBJT: "22:00 [北京时间]",
+            localTime: "沙特时间 17:00",
+            matchup: "中国男足 vs 交叉组晋级队",
+            channel: "CCTV-5 现场直播",
+            importance: "单场淘汰生死战，全力冲击八强红线目标！"
+          },
+          {
+            stage: "1/4 决赛 (八强决战)",
+            date: "2027年1月31日 (周日)",
+            timeBJT: "22:00 [北京时间]",
+            localTime: "沙特时间 17:00",
+            matchup: "亚洲杯八强淘汰赛",
+            channel: "CCTV-5 旗舰现场直播",
+            importance: "若突破八强即创造近十年来亚洲杯最佳战绩！"
+          },
+          {
+            stage: "🥇 亚洲杯金牌决战",
+            date: "2027年2月05日 (周五)",
+            timeBJT: "23:00 [北京时间]",
+            localTime: "沙特时间 18:00",
+            matchup: "亚洲杯冠亚军总决赛",
+            channel: "CCTV-5 压轴全国直播",
+            importance: "亚洲足球最高荣誉之巅荣耀对决！"
           }
         ]
       },
       {
         id: "t10",
-        name: "2027 FIBA 男篮世预赛第六窗口期 (终极生死决战)",
+        name: "2027 FIBA 男篮世预赛第六窗口期 (W6·终极生死收官战)",
         type: "basketball",
+        category: "upcoming",
         team: "中国男篮成年国家队",
         period: "2027.02.22 - 03.02",
-        status: "锁定世界杯门票",
-        statusColor: "bg-amber-500/20 text-amber-300 border-amber-500/30",
-        venue: "中国主场 (生死两战)",
+        status: "🔥 终极生死战 · 锁定世界杯门票",
+        statusColor: "bg-amber-500/20 text-amber-300 border-amber-500/40 font-bold",
+        venue: "中国主场 (生死两连击)",
         timezoneNote: "标准北京时间 CST",
         summary: "2027 卡塔尔男篮世界杯预选赛最后收官阶段，主场两连击，胜负直接裁决中国男篮能否出现在卡塔尔世界杯舞台！",
         matches: [
@@ -626,13 +451,14 @@
       },
       {
         id: "t11",
-        name: "2027 AFC U-20 男足亚洲杯正赛 (中国本土举办 · 冲击世青赛)",
+        name: "2027 AFC U-20 男足亚洲杯正赛 (中国本土举办 · 家门口冲世青赛)",
         type: "football",
+        category: "upcoming",
         team: "中国U20男足国青队",
         period: "2027.03.24 - 04.10",
-        status: "本土冲世青赛",
-        statusColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
-        venue: "中国本土 (深圳大运中心 / 成都凤凰山)",
+        status: "🔥 本土冲世青赛 · 冲击四强",
+        statusColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/40 font-bold",
+        venue: "中国本土 (深圳大运中心 / 成都凤凰山专业足球场)",
         timezoneNote: "本土主场，标准北京时间 CST",
         summary: "中国足协本土承办 U20 亚洲杯！前四名直接晋级 2027 智利 U20 世界杯。国青小将坐镇家门口主场，誓破多年无缘世青赛魔咒！",
         matches: [
@@ -646,6 +472,24 @@
             importance: "本土揭幕战，数万球迷助威，打响出线第一枪"
           },
           {
+            stage: "小组赛第 2 轮 (周末主场卡位)",
+            date: "2027年3月28日 (周日)",
+            timeBJT: "19:30 [北京时间]",
+            localTime: "北京时间 19:30",
+            matchup: "中国U20国青 vs 小组次战对手",
+            channel: "CCTV-5 现场直播、央视频",
+            importance: "周末主场卡位战，全力争胜锁定出线席位"
+          },
+          {
+            stage: "小组赛第 3 轮 (小组排位战)",
+            date: "2027年3月31日 (周三)",
+            timeBJT: "19:30 [北京时间]",
+            localTime: "北京时间 19:30",
+            matchup: "中国U20国青 vs 同组强敌",
+            channel: "CCTV-5 现场直播、央视频",
+            importance: "小组排位战，争取小组头名避开交叉半区豪强"
+          },
+          {
             stage: "🔥 1/4 决赛 (赢球即进智利世青赛！)",
             date: "2027年4月4日 (周日)",
             timeBJT: "19:30 [北京时间]",
@@ -655,10 +499,248 @@
             importance: "终极生死战：胜者直接挺进四强并锁定智利世青赛门票！"
           }
         ]
+      },
+
+      // -------------------------------------------------------------
+      // 2. 已完赛历史战果归档 (COMPLETED ARCHIVES)
+      // -------------------------------------------------------------
+      {
+        id: "t_mbb_asian",
+        name: "第20届爱知·名古屋亚运会 · 男篮五人制比赛",
+        type: "basketball",
+        category: "completed",
+        team: "中国男篮成年国家队",
+        period: "2026.09.10 - 09.20 (已圆满收官)",
+        status: "✅ 已完赛 · 顺利收官",
+        statusColor: "bg-slate-500/20 text-slate-400 border-slate-500/30 font-medium",
+        venue: "名古屋市体育馆 / 冈崎中央综合公园",
+        timezoneNote: "日本 JST 比北京时间快 1 小时",
+        summary: "亚运男篮大项顺利结束，中国男篮顽强拼搏，先后战胜哈萨克斯坦、巴林等劲旅杀入四强，并在铜牌战中克服逆境斩获季军！",
+        matches: [
+          {
+            stage: "C 组小组赛第 1 场 (开门红)",
+            date: "2026年9月11日 (周五)",
+            timeBJT: "【完赛】中国男篮 胜 哈萨克斯坦",
+            localTime: "日本时间 11:00",
+            matchup: "中国男篮 82 - 64 哈萨克斯坦男篮",
+            channel: "CCTV-5 · 已完赛",
+            importance: "内线制空优势明显，顺利打响开门红"
+          },
+          {
+            stage: "C 组小组赛第 2 场 (两连胜锁定出线)",
+            date: "2026年9月12日 (周六)",
+            timeBJT: "【完赛】中国男篮 胜 巴林",
+            localTime: "日本时间 16:00",
+            matchup: "中国男篮 91 - 58 巴林男篮",
+            channel: "CCTV-5 · 已完赛",
+            importance: "全员高强度轮换，大胜锁定小组出线资格"
+          },
+          {
+            stage: "C 组小组赛第 3 场 (宿敌交锋)",
+            date: "2026年9月14日 (周一)",
+            timeBJT: "【完赛】中国男篮 vs 菲律宾",
+            localTime: "日本时间 13:00",
+            matchup: "中国男篮 vs 菲律宾男篮",
+            channel: "CCTV-5 · 已完赛",
+            importance: "高强度身体对抗，争夺小组头名排位"
+          },
+          {
+            stage: "🥉 亚运男篮季军铜牌战",
+            date: "2026年9月20日 (周日)",
+            timeBJT: "【完赛】斩获亚运铜牌",
+            localTime: "日本时间 16:40",
+            matchup: "中国男篮 78 - 72 伊朗男篮",
+            channel: "CCTV-5+ / 咪咕体育 · 已完赛",
+            importance: "全队顽强拼搏，逆境夺下宝贵亚运铜牌！"
+          }
+        ]
+      },
+      {
+        id: "t_wc_wbb",
+        name: "2026 FIBA 女篮世界杯 (德国柏林 · 斩获世界八强)",
+        type: "basketball",
+        category: "completed",
+        team: "中国女篮成年国家队",
+        period: "2026.09.04 - 09.13 (已圆满收官)",
+        status: "✅ 已完赛 · 世界八强",
+        statusColor: "bg-slate-500/20 text-slate-400 border-slate-500/30 font-medium",
+        venue: "德国柏林 · 奔驰竞技场 (Uber Arena)",
+        timezoneNote: "德国 CEST 比北京时间慢 6 小时",
+        summary: "世界最高殿堂！中国女篮主力阵容在柏林奋勇作战，顺利跨越小组赛晋级八强，在世界顶级舞台展现了无畏金兰的女篮风采！",
+        matches: [
+          {
+            stage: "1/4 决赛 (八强生死决战)",
+            date: "2026年9月11日 (周五)",
+            timeBJT: "【完赛】八强淘汰赛",
+            localTime: "当地时间 14:30",
+            matchup: "中国女篮 vs 世界顶尖淘汰赛强队",
+            channel: "CCTV-5 · 已完赛",
+            importance: "世界顶级硬碰硬较量，展现顽强防守与战术素养"
+          },
+          {
+            stage: "👑 世界杯金牌巅峰决战",
+            date: "2026年9月13日 (周日)",
+            timeBJT: "【完赛】决出世界冠军",
+            localTime: "当地时间 17:30",
+            matchup: "美国女篮 vs 决赛对手",
+            channel: "CCTV-5 旗舰直播 · 已收官",
+            importance: "2026年女子篮球世界最高水准对决圆满闭幕"
+          }
+        ]
+      },
+      {
+        id: "t_wbb_asian",
+        name: "第20届爱知·名古屋亚运会 · 女篮五人制比赛",
+        type: "basketball",
+        category: "completed",
+        team: "中国女篮国家队",
+        period: "2026.09.17 - 09.26 (已圆满收官)",
+        status: "✅ 已完赛 · 顺利收官",
+        statusColor: "bg-slate-500/20 text-slate-400 border-slate-500/30 font-medium",
+        venue: "名古屋市体育馆",
+        timezoneNote: "日本 JST 比北京时间快 1 小时",
+        summary: "转战名古屋亚运赛场，中国女篮连克强敌，挺进冠亚军金牌对决，继续捍卫亚洲女篮旗帜！",
+        matches: [
+          {
+            stage: "女篮小组赛第 1 场 (开门红)",
+            date: "2026年9月17日 (周四)",
+            timeBJT: "【完赛】小组首胜",
+            localTime: "日本时间 15:00",
+            matchup: "中国女篮 胜 小组对手",
+            channel: "CCTV-5 · 已完赛",
+            importance: "克服时差与赛程密集困难，顺利拿下首秀"
+          },
+          {
+            stage: "🥇 亚运女篮金牌决战",
+            date: "2026年9月26日 (周六)",
+            timeBJT: "【完赛】金牌决赛",
+            localTime: "日本时间 20:00",
+            matchup: "中国女篮 vs 日本女篮 (亚洲巅峰交锋)",
+            channel: "CCTV-5 现场直播 · 已完赛",
+            importance: "东亚巅峰之战，展现顽强拼搏精神"
+          }
+        ]
+      },
+      {
+        id: "t2",
+        name: "第20届爱知·名古屋亚运会 · 男足比赛 (死亡B组)",
+        type: "football",
+        category: "completed",
+        team: "中国U23男足 (亚运队)",
+        period: "2026.09.15 - 10.03 (已圆满收官)",
+        status: "✅ 已完赛 · 顺利收官",
+        statusColor: "bg-slate-500/20 text-slate-400 border-slate-500/30 font-medium",
+        venue: "爱知县丰田体育场 / 港足球场 / 刈谷体育场",
+        timezoneNote: "日本 JST 比北京时间快 1 小时",
+        summary: "在死亡B组（中国、朝鲜、伊朗、阿联酋）中，U23国奥小伙子们首战2-1逆转绝杀朝鲜，展现了敢打敢拼的血性，圆满完成亚运战役！",
+        matches: [
+          {
+            stage: "小组赛第 1 轮 (✅ 2-1 逆转绝杀战报)",
+            date: "2026年9月17日",
+            timeBJT: "【完赛】中国 2-1 朝鲜",
+            localTime: "波形体育场",
+            matchup: "中国U23男足 2 - 1 朝鲜队",
+            channel: "CCTV-5 · 已完赛",
+            importance: "开门红！崔国27'破门，张玉宁44'扳平，吴曦68'逆转绝杀夺得首胜3分！"
+          },
+          {
+            stage: "小组赛第 2 轮 (硬碰硬较量)",
+            date: "2026年9月20日",
+            timeBJT: "【完赛】中国 vs 伊朗",
+            localTime: "日本时间 14:00",
+            matchup: "中国U23男足 vs 伊朗队",
+            channel: "CCTV-5 · 已完赛",
+            importance: "B组关键战，全力以赴拼防守与反击"
+          },
+          {
+            stage: "🥇 亚运会男足金牌决战",
+            date: "2026年10月3日 (周六)",
+            timeBJT: "【完赛】决出金牌",
+            localTime: "丰田体育场",
+            matchup: "亚运男足冠亚军决赛",
+            channel: "CCTV-5 · 已完赛",
+            importance: "2026 名古屋亚运会男足项目正式闭幕"
+          }
+        ]
+      },
+      {
+        id: "t3",
+        name: "第20届爱知·名古屋亚运会 · 女足比赛 (G组)",
+        type: "football",
+        category: "completed",
+        team: "中国女足国家队 (铿锵玫瑰)",
+        period: "2026.09.14 - 10.02 (已圆满收官)",
+        status: "✅ 已完赛 · 顺利收官",
+        statusColor: "bg-slate-500/20 text-slate-400 border-slate-500/30 font-medium",
+        venue: "日本名古屋瑞穗竞技场 / 刈谷体育场",
+        timezoneNote: "日本 JST 比北京时间快 1 小时",
+        summary: "中国女足在亚运赛场连续克服逆境，小组赛与淘汰赛全力进攻，展现铿锵玫瑰精神，圆满完成亚运征程！",
+        matches: [
+          {
+            stage: "女足小组赛第 1 轮 (✅ 1-1 战平战报)",
+            date: "2026年9月17日",
+            timeBJT: "【完赛】中国 1-1 乌兹别克",
+            localTime: "瑞穗竞技场",
+            matchup: "中国女足 1 - 1 乌兹别克斯坦女足",
+            channel: "CCTV-5 · 已完赛",
+            importance: "狂轰24脚射门憾平！达达博耶娃42'领先，张琳艳71'头球建功扳平夺1分。"
+          },
+          {
+            stage: "女足小组赛第 2 轮 (大胜抢分)",
+            date: "2026年9月20日",
+            timeBJT: "【完赛】中国女足大胜",
+            localTime: "瑞穗竞技场",
+            matchup: "中国女足 vs 中国香港女足",
+            channel: "CCTV-5 · 已完赛",
+            importance: "全力进攻夺取净胜球，奠定出线胜局"
+          },
+          {
+            stage: "🥇 亚运女足金牌决战",
+            date: "2026年10月2日 (周五)",
+            timeBJT: "【完赛】决出冠军",
+            localTime: "瑞穗竞技场",
+            matchup: "亚运女足冠亚军总决赛",
+            channel: "CCTV-5 · 已完赛",
+            importance: "亚洲顶级女足赛事圆满收官"
+          }
+        ]
+      },
+      {
+        id: "t5",
+        name: "中国男足成年国家队 · FIFA 16天秋季合并窗口 (高质量热身赛)",
+        type: "football",
+        category: "completed",
+        team: "中国男足成年国家队",
+        period: "2026.09.21 - 10.06 (已圆满收官)",
+        status: "✅ 已完赛 · 练兵收官",
+        statusColor: "bg-slate-500/20 text-slate-400 border-slate-500/30 font-medium",
+        venue: "中国国内主场 (大连 / 青岛)",
+        timezoneNote: "中国本土作战，标准北京时间 CST",
+        summary: "国际足联 16 天超长秋季窗口圆满结束，国足进行了多场高规格 A 级热身，深入考察战术体系与年轻球员，为 2027 沙特亚洲杯积累宝贵实战经验！",
+        matches: [
+          {
+            stage: "国际 A 级热身赛第 1 场",
+            date: "2026年9月25日",
+            timeBJT: "【完赛】热身练兵第 1 战",
+            localTime: "北京时间 19:35",
+            matchup: "中国男足 vs 受邀中亚劲旅",
+            channel: "CCTV-5 · 已完赛",
+            importance: "实战演练防守反击新阵型，磨合主力骨架"
+          },
+          {
+            stage: "国际 A 级热身赛第 2 场",
+            date: "2026年9月29日",
+            timeBJT: "【完赛】热身练兵第 2 战",
+            localTime: "北京时间 19:35",
+            matchup: "中国男足 vs 受邀东南亚对手",
+            channel: "CCTV-5 · 已完赛",
+            importance: "检验前场阵地破密集防守效果"
+          }
+        ]
       }
     ];
 
-    let currentFilter = 'all';
+    let currentFilter = 'upcoming';
 
     window.addEventListener("DOMContentLoaded", () => {
       startClock();
@@ -682,14 +764,15 @@
 
       const filtered = SCHEDULE_DATA.filter(item => {
         if (currentFilter === 'all') return true;
-        if (currentFilter === 'today') return item.id === 't_mbb_asian' || item.id === 't_wc_wbb';
+        if (currentFilter === 'upcoming') return item.category === 'upcoming';
+        if (currentFilter === 'completed') return item.category === 'completed';
         if (currentFilter === 'football') return item.type === 'football';
         if (currentFilter === 'basketball') return item.type === 'basketball';
         return true;
       });
 
       container.innerHTML = filtered.map(item => {
-        const isUrgent = item.status.includes('今日') || item.status.includes('明天') || item.status.includes('进行中');
+        const isUrgent = item.status.includes('倒计时') || item.status.includes('即将') || item.status.includes('今日') || item.status.includes('明天');
         const borderColor = isUrgent ? 'border-amber-500/60 shadow-lg shadow-amber-950/20' : 'border-dark-700';
 
         return `
@@ -722,8 +805,8 @@
               <!-- Drill-down Toggle Indicator Button -->
               <div class="flex items-center gap-2 shrink-0 self-end md:self-center">
                 <span class="text-[11px] text-amber-400/90 font-semibold flex items-center gap-1 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">
-                  <span id="label-${item.id}">下钻具体北京时间 (${item.matches.length}场)</span>
-                  <span id="arrow-${item.id}" class="transform transition-transform text-xs">▼</span>
+                  <span id="label-${item.id}">${isUrgent ? '收起比赛时间' : '下钻具体对阵 (' + item.matches.length + '场)'}</span>
+                  <span id="arrow-${item.id}" class="transform transition-transform text-xs" style="${isUrgent ? 'transform: rotate(180deg);' : ''}">▼</span>
                 </span>
               </div>
             </div>
@@ -783,7 +866,7 @@
 
                     <div class="text-[11px] text-slate-400 bg-dark-900/60 p-2 rounded-lg flex items-center justify-between gap-2">
                       <div>
-                        <strong class="text-slate-300">出线看点：</strong>${m.importance}
+                        <strong class="text-slate-300">焦点看点：</strong>${m.importance}
                       </div>
                       <span class="text-[10px] text-slate-500 font-mono shrink-0">(${m.localTime})</span>
                     </div>
@@ -806,12 +889,12 @@
       if (content.classList.contains("hidden")) {
         content.classList.remove("hidden");
         if (arrow) arrow.style.transform = "rotate(180deg)";
-        if (label) label.innerText = "收起具体时间";
+        if (label) label.innerText = "收起比赛时间";
       } else {
         content.classList.add("hidden");
         if (arrow) arrow.style.transform = "rotate(0deg)";
         const item = SCHEDULE_DATA.find(x => x.id === id);
-        if (label) label.innerText = `下钻具体北京时间 (${item ? item.matches.length : ''}场)`;
+        if (label) label.innerText = `下钻具体对阵 (${item ? item.matches.length : ''}场)`;
       }
     }
 
@@ -825,11 +908,11 @@
         if (open) {
           content.classList.remove("hidden");
           if (arrow) arrow.style.transform = "rotate(180deg)";
-          if (label) label.innerText = "收起具体时间";
+          if (label) label.innerText = "收起比赛时间";
         } else {
           content.classList.add("hidden");
           if (arrow) arrow.style.transform = "rotate(0deg)";
-          if (label) label.innerText = `下钻具体北京时间 (${item.matches.length}场)`;
+          if (label) label.innerText = `下钻具体对阵 (${item.matches.length}场)`;
         }
       });
     }
