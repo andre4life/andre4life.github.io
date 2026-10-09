@@ -118,14 +118,27 @@
   },
   {
     "id": "sports_calendar",
-    "title": "国字号赛程日历 (足球 ＆ 篮球)",
+    "title": "国字号赛程日历 (含国足热身赛/世界杯)",
     "category": "sports",
     "categoryName": "体育与兴趣",
     "icon": "🏆",
-    "tag": "国字号赛事日历",
-    "badge": "10-11月出征",
+    "tag": "国足热身赛 · 世界杯正赛",
+    "badge": "含11月热身赛",
     "url": "sports/index.html",
-    "desc": "未来6个月中国男足/女足/男篮/女篮成年国家队与各级国青U系列赛程，严格过滤商业联赛。",
+    "desc": "中国男足成年队11月亚洲杯行前公开热身赛（2场）、U17男女足世界杯正赛、男篮世预赛W5窗口期，精准北京时间全下钻。",
+    "status": "active",
+    "isHero": false
+  },
+  {
+    "id": "football_warmup",
+    "title": "中国男足 · 亚洲杯热身备战赛",
+    "category": "sports",
+    "categoryName": "体育与兴趣",
+    "icon": "⚽",
+    "tag": "国足热身赛 · 央视直播",
+    "badge": "11.09-11.17",
+    "url": "sports/index.html#t8",
+    "desc": "国足亚洲杯出征前最后两场公开国际A级热身赛，11月12日/16日 19:35 CCTV-5现场直播，直通下钻具体对阵与开球时间。",
     "status": "active",
     "isHero": false
   }

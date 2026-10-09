@@ -99,6 +99,9 @@
         <button onclick="filterType('upcoming')" id="btn-type-upcoming" class="type-pill px-3 py-1.5 rounded-lg bg-amber-500 text-white font-bold whitespace-nowrap shadow-sm">
           🔥 近期大考 (10-11月聚焦)
         </button>
+        <button onclick="filterType('warmup')" id="btn-type-warmup" class="type-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">
+          ⚽ 国足热身赛 (11月行前演习)
+        </button>
         <button onclick="filterType('all')" id="btn-type-all" class="type-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">
           🌟 全部赛程 (13项全景)
         </button>
@@ -786,7 +789,30 @@
 
     window.addEventListener("DOMContentLoaded", () => {
       startClock();
-      renderTournaments();
+      
+      // Hash Anchor Auto-Drilldown & Navigation (e.g. #t8)
+      if (window.location.hash) {
+        const hashId = window.location.hash.replace('#', '');
+        const target = SCHEDULE_DATA.find(x => x.id === hashId);
+        if (target) {
+          if (target.id === 't8' || target.name.includes('热身')) {
+            filterType('warmup');
+          } else if (target.category === 'completed') {
+            filterType('completed');
+          } else {
+            filterType('upcoming');
+          }
+        } else {
+          renderTournaments();
+        }
+        setTimeout(() => {
+          toggleAccordion(hashId);
+          const el = document.getElementById('card-' + hashId);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 180);
+      } else {
+        renderTournaments();
+      }
     });
 
     function startClock() {
@@ -807,6 +833,7 @@
       const filtered = SCHEDULE_DATA.filter(item => {
         if (currentFilter === 'all') return true;
         if (currentFilter === 'upcoming') return item.category === 'upcoming';
+        if (currentFilter === 'warmup') return item.id === 't8' || item.id === 't5' || item.name.includes('热身');
         if (currentFilter === 'completed') return item.category === 'completed';
         if (currentFilter === 'football') return item.type === 'football';
         if (currentFilter === 'basketball') return item.type === 'basketball';

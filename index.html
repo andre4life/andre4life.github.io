@@ -225,23 +225,25 @@
     }
 
     async function loadPortalLinks() {
-      // 1. Try to load from localStorage cache
-      const cached = localStorage.getItem("andre_portal_links_v3");
-      if (cached) {
-        try {
-          portalLinks = JSON.parse(cached);
-        } catch (e) {}
-      }
-
-      // 2. Fetch remote portal_links.json
+      // 1. Prioritize fresh remote fetch
       try {
         const resp = await fetch("portal_links.json?" + Date.now());
         if (resp.ok) {
           portalLinks = await resp.json();
-          localStorage.setItem("andre_portal_links_v3", JSON.stringify(portalLinks));
+          localStorage.setItem("andre_portal_links_v4", JSON.stringify(portalLinks));
+          return;
         }
       } catch (err) {
-        console.warn("Using cached portal links", err);
+        console.warn("Fetch remote failed, falling back to cache", err);
+      }
+
+      // 2. Fallback to localStorage cache
+      const cached = localStorage.getItem("andre_portal_links_v4") || localStorage.getItem("andre_portal_links_v3");
+      if (cached) {
+        try {
+          portalLinks = JSON.parse(cached);
+          return;
+        } catch (e) {}
       }
     }
 
