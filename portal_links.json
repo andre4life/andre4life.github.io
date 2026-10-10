@@ -91,6 +91,19 @@
     "isHero": false
   },
   {
+    "id": "national_news",
+    "title": "热点国家新闻追踪与深度解读中枢",
+    "category": "business",
+    "categoryName": "业务与法商",
+    "icon": "🌐",
+    "tag": "宏观大政 · 三师解读",
+    "badge": "每日追踪",
+    "url": "news/index.html",
+    "desc": "顶层财政化债、央行宽松、房地产止跌、延迟退休、日本三十年对照与新公司法，权威大政事实+三师透析+通俗买菜比喻+展业口袋短语。",
+    "status": "active",
+    "isHero": false
+  },
+  {
     "id": "beiyun",
     "title": "备孕小贴士",
     "category": "life",

@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="国家要闻解读">
+  <title>热点国家新闻追踪与深度解读中枢 · 安总个人数字中枢</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: #070a12; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+
+    .bg-dark-900 { background-color: #070a12; }
+    .bg-dark-850 { background-color: #0d1322; }
+    .bg-dark-800 { background-color: #131b2e; }
+    .bg-dark-750 { background-color: #1a243b; }
+    .border-dark-700 { border-color: #24324f; }
+    .border-dark-600 { border-color: #33446b; }
+    
+    .gold-gradient {
+      background: linear-gradient(135deg, #f59e0b, #d97706, #fbbf24);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .pulse-dot {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .4; }
+    }
+  </style>
+</head>
+<body class="bg-dark-900 text-slate-200 font-sans min-h-screen flex flex-col selection:bg-amber-500 selection:text-black pb-12">
+
+  <!-- TOP HEADER -->
+  <header class="sticky top-0 z-50 bg-dark-850/95 backdrop-blur-md border-b border-dark-700 px-4 md:px-8 py-3.5 flex items-center justify-between shadow-xl">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="px-2.5 py-1.5 rounded-xl bg-dark-800 hover:bg-dark-750 text-amber-400 text-xs font-bold border border-dark-700 flex items-center gap-1 transition-all">
+        <span>←</span> <span class="hidden sm:inline">主中枢</span>
+      </a>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-sm md:text-base font-bold text-white tracking-wide flex items-center gap-1.5">
+            <span>🌐</span> 热点国家新闻追踪与解读
+          </h1>
+          <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30 font-mono font-bold flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 pulse-dot"></span>
+            三师共诊 · 宏观内参
+          </span>
+        </div>
+        <p class="text-[11px] text-slate-400">穿透国家战略大政 · 宏观利率逻辑 · 双层生活化解释 · 赋能高客展业</p>
+      </div>
+    </div>
+
+    <!-- Live Beijing Time Clock & Add Action -->
+    <div class="flex items-center gap-2">
+      <div class="flex flex-col text-right text-[11px] font-mono bg-dark-800/90 px-2.5 py-1 rounded-xl border border-dark-700 shadow-sm">
+        <span class="text-rose-400 text-[10px] font-bold flex items-center justify-end gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-rose-500 pulse-dot"></span>
+          北京时间 (UTC+8)
+        </span>
+        <span id="beijing-clock" class="text-amber-300 font-bold text-xs sm:text-sm">加载中...</span>
+      </div>
+      <button onclick="openAddNewsModal()" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 text-white text-xs font-bold shadow-md shadow-amber-900/20 flex items-center gap-1 transition-all">
+        <span>➕</span> <span class="hidden sm:inline">录入新要闻</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MACRO DIRECTIVE PRINCIPLE BANNER -->
+  <div class="bg-gradient-to-r from-amber-950/60 via-dark-850 to-blue-950/50 border-b border-amber-500/30 px-4 md:px-8 py-2.5 text-xs text-amber-200/90 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 shadow-sm">
+    <div class="flex items-center gap-2 text-[11px] sm:text-xs">
+      <span class="text-base">🏛️</span>
+      <span><strong>【安总国家宏观内参准则】：</strong>不看地摊噪音，专盯国家顶层宏观大政！用<strong>“三师共诊（投顾+法商+医养）”</strong>深挖底层传导，用<strong>“通俗买菜比喻”</strong>讲透逻辑，一键提炼外勤陪谈<strong>“口袋短语”</strong>。</span>
+    </div>
+    <div class="flex items-center gap-2 self-end md:self-center shrink-0">
+      <button onclick="toggleAllNews(true)" class="px-2 py-0.5 rounded bg-dark-800 hover:bg-dark-750 text-[10px] text-slate-300 border border-dark-600">▾ 全部展开解读</button>
+      <button onclick="toggleAllNews(false)" class="px-2 py-0.5 rounded bg-dark-800 hover:bg-dark-750 text-[10px] text-slate-300 border border-dark-600">▴ 全部折叠</button>
+    </div>
+  </div>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 p-3 md:p-6 max-w-6xl w-full mx-auto space-y-4 md:space-y-6">
+
+    <!-- KPI / OVERVIEW STATS -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div class="bg-dark-850 p-3.5 rounded-xl border border-dark-700 shadow-sm">
+        <div class="text-[11px] text-slate-400 mb-1">入库核心要闻解读</div>
+        <div class="text-xl md:text-2xl font-bold font-mono text-white flex items-baseline gap-1">
+          <span id="stat-total">7</span> <span class="text-[10px] text-slate-500 font-sans">篇大政</span>
+        </div>
+        <div class="mt-1 text-[10px] text-amber-400 font-mono">
+          涵盖顶层财政/央行/地产
+        </div>
+      </div>
+
+      <div class="bg-dark-850 p-3.5 rounded-xl border border-dark-700 shadow-sm">
+        <div class="text-[11px] text-slate-400 mb-1">三师视角覆盖度</div>
+        <div class="text-xl md:text-2xl font-bold font-mono text-emerald-400">
+          100%
+        </div>
+        <div class="mt-1 text-[10px] text-slate-400 font-mono">
+          投顾 + 法商 + 医养养老
+        </div>
+      </div>
+
+      <div class="bg-dark-850 p-3.5 rounded-xl border border-dark-700 shadow-sm">
+        <div class="text-[11px] text-slate-400 mb-1">展业赋能口袋短语</div>
+        <div class="text-xl md:text-2xl font-bold font-mono text-amber-400">
+          <span id="stat-phrases">14</span> <span class="text-[10px] text-slate-500 font-sans">组金句</span>
+        </div>
+        <div class="mt-1 text-[10px] text-emerald-400 font-mono">
+          外勤陪谈一键复制促成
+        </div>
+      </div>
+
+      <div class="bg-dark-850 p-3.5 rounded-xl border border-dark-700 shadow-sm">
+        <div class="text-[11px] text-slate-400 mb-1">全球主要国家对映</div>
+        <div class="text-xl md:text-2xl font-bold font-mono text-blue-400">
+          日/美/全球
+        </div>
+        <div class="mt-1 text-[10px] text-slate-400 font-mono">
+          日本失落30年 ＆ 美联储降息
+        </div>
+      </div>
+    </div>
+
+    <!-- FILTER & SEARCH BAR -->
+    <div class="bg-dark-850 p-3.5 rounded-2xl border border-dark-700 space-y-3 shadow-md">
+      <!-- Search -->
+      <div class="relative">
+        <span class="absolute inset-y-0 left-3 flex items-center text-slate-500 text-xs">🔍</span>
+        <input type="text" id="news-search" oninput="renderNewsList()" placeholder="实时检索国家大政、化债、降息、房地产、日本三十年、延迟退休、新公司法..." class="w-full bg-dark-900 border border-dark-600 rounded-xl pl-8 pr-3 py-2 text-xs text-slate-200 placeholder-slate-500 outline-none focus:border-amber-500 transition-colors">
+      </div>
+
+      <!-- Categories Pills -->
+      <div class="flex items-center gap-1.5 overflow-x-auto text-xs pb-1 scrollbar-none">
+        <button onclick="setNewsCategory('all')" id="btn-cat-all" class="news-cat-pill px-3 py-1.5 rounded-lg bg-amber-500 text-white font-bold whitespace-nowrap shadow-sm">
+          🌟 全部要闻 (<span id="cat-count-all">7</span>)
+        </button>
+        <button onclick="setNewsCategory('fiscal')" id="btn-cat-fiscal" class="news-cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">
+          🇨🇳 顶层财政与加力化债
+        </button>
+        <button onclick="setNewsCategory('monetary')" id="btn-cat-monetary" class="news-cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">
+          💰 央行宽松与资本市场
+        </button>
+        <button onclick="setNewsCategory('property')" id="btn-cat-property" class="news-cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">
+          🏡 房地产止跌与存量房贷
+        </button>
+        <button onclick="setNewsCategory('pension')" id="btn-cat-pension" class="news-cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">
+          👴 延迟退休与医养支柱
+        </button>
+        <button onclick="setNewsCategory('global')" id="btn-cat-global" class="news-cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">
+          🇯🇵 日本30年对照 ＆ 美联储
+        </button>
+        <button onclick="setNewsCategory('law')" id="btn-cat-law" class="news-cat-pill px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-750 text-slate-300 border border-dark-600 whitespace-nowrap">
+          ⚖️ 新公司法与家产隔离
+        </button>
+      </div>
+    </div>
+
+    <!-- NEWS CARDS LIST -->
+    <div id="news-container" class="space-y-4">
+      <!-- Injected via JavaScript -->
+    </div>
+
+  </main>
+
+  <!-- MODAL: ADD CUSTOM NEWS RECORD -->
+  <div id="modal-add-news" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-dark-850 border border-dark-600 rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-dark-700 pb-3">
+        <h3 class="text-sm font-bold text-white flex items-center gap-1.5">
+          <span>➕</span> 录入最新国家要闻与深度解读
+        </h3>
+        <button onclick="closeModal('modal-add-news')" class="text-slate-400 hover:text-white text-base">&times;</button>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div>
+          <label class="block text-slate-400 mb-1">国家要闻标题 <span class="text-rose-400">*</span></label>
+          <input type="text" id="new-news-title" placeholder="例如：央行宣布开展公开市场国债买卖操作" class="w-full bg-dark-900 border border-dark-600 rounded-lg p-2 text-slate-200 outline-none focus:border-amber-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-slate-400 mb-1">所属宏观分类</label>
+            <select id="new-news-category" class="w-full bg-dark-900 border border-dark-600 rounded-lg p-2 text-slate-200 outline-none focus:border-amber-500">
+              <option value="fiscal">🇨🇳 顶层财政与加力化债</option>
+              <option value="monetary">💰 央行宽松与资本市场</option>
+              <option value="property">🏡 房地产止跌与存量房贷</option>
+              <option value="pension">👴 延迟退休与医养支柱</option>
+              <option value="global">🇯🇵 日本30年对照 ＆ 美联储</option>
+              <option value="law">⚖️ 新公司法与家产隔离</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">权威官方源 / 发布机构</label>
+            <input type="text" id="new-news-source" placeholder="例如：新华社 / 财政部 / 中国人民银行" class="w-full bg-dark-900 border border-dark-600 rounded-lg p-2 text-slate-200 outline-none focus:border-amber-500">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-slate-400 mb-1">核心政策事实要点 (每行一条)</label>
+          <textarea id="new-news-facts" rows="2" placeholder="1. 明确增量化债规模...&#10;2. 降低银行负债端成本..." class="w-full bg-dark-900 border border-dark-600 rounded-lg p-2 text-slate-200 outline-none focus:border-amber-500"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-emerald-400 mb-1">📊 投顾理财视角解读 (利率/市场/定投传导)</label>
+          <textarea id="new-news-advisor" rows="2" placeholder="无风险利率下行对居民财富结构与定投的影响..." class="w-full bg-dark-900 border border-dark-600 rounded-lg p-2 text-slate-200 outline-none focus:border-amber-500"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-purple-400 mb-1">⚖️ 法商与家办风险视角 (债务隔离/税务传承)</label>
+          <textarea id="new-news-legal" rows="2" placeholder="针对企业主公私财产混同与债权防范的穿透影响..." class="w-full bg-dark-900 border border-dark-600 rounded-lg p-2 text-slate-200 outline-none focus:border-amber-500"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-amber-400 mb-1">🍎 通俗生活化比喻 (买菜/存粮大白话类比)</label>
+          <textarea id="new-news-metaphor" rows="2" placeholder="例如：买菜比喻... 把高大上的宏观政策变成一句买菜通俗大白话..." class="w-full bg-dark-900 border border-dark-600 rounded-lg p-2 text-slate-200 outline-none focus:border-amber-500"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-rose-400 mb-1">💬 外勤高客陪谈口袋短语 (直接促成金句)</label>
+          <input type="text" id="new-news-phrase" placeholder="例如：“在国家全面降成本的时代，只有确定性的现金流才是家庭唯一的压舱石。”" class="w-full bg-dark-900 border border-dark-600 rounded-lg p-2 text-slate-200 outline-none focus:border-amber-500">
+        </div>
+      </div>
+
+      <div class="flex items-center justify-end gap-2 pt-2 border-t border-dark-700">
+        <button onclick="closeModal('modal-add-news')" class="px-4 py-2 rounded-lg bg-dark-800 text-slate-300 text-xs">取消</button>
+        <button onclick="saveCustomNews()" class="px-5 py-2 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold">保存并入库</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-dark-800 border border-amber-500/40 text-slate-100 px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2 text-xs">
+    <span id="toast-icon">✅</span>
+    <span id="toast-msg">已复制到剪贴板</span>
+  </div>
+
+  <script>
+    // -----------------------------------------------------------------
+    // 核心国家要闻数据库 (7 大国家级宏观战略政策深度透视)
+    // -----------------------------------------------------------------
+    const DEFAULT_NEWS_DATA = [
+      {
+        id: "news_1_debt_swap",
+        category: "fiscal",
+        categoryName: "🇨🇳 顶层财政与加力化债",
+        tag: "重磅化债 · 特别国债",
+        source: "新华社 / 财政部新闻发布会",
+        date: "2026年宏观主线",
+        title: "财政部加力推出近年来力度最大化债组合拳，发行超长期特别国债支持国家战略",
+        importanceBadge: "🔥 国家战略大政",
+        importanceColor: "bg-red-500/20 text-rose-300 border-red-500/40 font-bold",
+        facts: [
+          "财政部系统安排增量政策工具，推出近年来支持地方化解隐性债务力度最大的一揽子措施，大幅置换地方存量隐性债务；",
+          "发行超长期特别国债持续支持国家重大战略实施和重点领域安全能力建设（'两重'），推动大规模设备更新和消费品以旧换新（'两新'）；",
+          "财政赤字空间足、中央财政举债空间大，政策工具箱储备充裕。"
+        ],
+        advisorAnalysis: "【投顾与宏观视角】：国家主导大化债的核心逻辑是用中央极低成本的'长期好账'去置换地方由于历史盲目举债留下的'短期高息烂账'。这意味着高息城投刚兑神话彻底退场，全社会无风险利率中枢不可逆地向 1%-2% 探底。以往躺赚 4%-5% 的固收理财时代终结，大类资产配置必须从'找高利息'转向'锁死长期确定性'。",
+        legalAnalysis: "【法商与家办视角】：地方政府债务显性化和透明化后，企业主以往依赖政府工程回款的'非标业务'面临严格清算与延期；部分企业主公私账户混同、为地方项目提供个人无限连带担保的隐形雷区加速引爆。高客必须在此窗口期完成家庭非经营性资产与企业法人债务的法定绝缘。",
+        insurancePitch: "【年金与分红险赋能】：财政全面降息置换的过程，本质就是整个社会在降低资金成本。现在不通过终身年金险锁住未来 30-50 年的复利现金流，未来手里的现金只能在长期低息中被隐性稀释。年金险不是赚快钱，而是和国家财政一样，用确定性的契约换取一辈子的安全感。",
+        metaphor: "【生活化买菜比喻】：这就好比村里的大表哥以前在外面借了年利息20%的高利贷，每天被人堵门要饭碗。现在家族德高望重的族长（中央财政）出面，用家族信誉打了一张年息2%的三十年长条子，帮表哥把高利贷一次性还清。表哥命保住了，但全村借钱的利息规矩彻底改了——以后谁要是还妄想放高利贷躺赚，全村都不会再认了！",
+        pocketPhrase: "“在国家全面降息化债的时代，高收益刚兑已经彻底成为历史；锁住未来确定性的现金流，是家庭唯一的护城河。”",
+        selfQuestions: [
+          "为什么说地方化债加速了全社会无风险利率的长期下行？",
+          "面对银行存款和理财收益率下滑，高净值客户最迫切的替代性需求是什么？",
+          "如何用一句话向外勤解释'超长期特别国债'对家庭资产配置的警示？"
+        ]
+      },
+      {
+        id: "news_2_pboc_easing",
+        category: "monetary",
+        categoryName: "💰 央行宽松与资本市场",
+        tag: "降准降息 · 创新货币工具",
+        source: "中国人民银行 / 金融监管总局 / 中国证监会",
+        date: "2026年宏观主线",
+        title: "央行全面下调存款准备金率与政策利率，首创结构性互换便利 (SFISF) 支持资本市场",
+        importanceBadge: "🔥 货币宽松风向标",
+        importanceColor: "bg-amber-500/20 text-amber-300 border-amber-500/40 font-bold",
+        facts: [
+          "中国人民银行下调存款准备金率 0.5 个百分点，向金融市场提供长期流动性约 1 万亿元；",
+          "7天期逆回购操作利率下调 0.2 个百分点，带动 MLF 和 LPR 贷款市场报价利率全面下行；",
+          "首次创设证券、基金、保险公司互换便利 (SFISF) 与股票回购增持再贷款，为高分红蓝筹与核心资本市场注入源头活水。"
+        ],
+        advisorAnalysis: "【投顾与宏观视角】：央行直接向资本市场提供结构性弹药，核心利好沪深 300 等低估值、高股息央国企蓝筹。同时，央行通过压低政策利率，倒逼各商业银行连续多次调降定期存款挂牌利率，各档期存款全面跌入'1时代'甚至趋向零利率。居民巨额超额储蓄（超 140 万亿）被迫寻找稳健避风港。",
+        legalAnalysis: "【法商与家办视角】：宽松的货币环境往往伴随着金融监管对非法集资、灰色信托与地下钱庄的穿透式严厉打击。高客手中的浮游资金绝不能贪图高息投向违规非标债权，必须进入受到国家严格牌照保护、受《保险法》与信托法双重隔离的合规通道。",
+        insurancePitch: "【年金与分红险赋能】：银行大额存单额度秒光且利率跌破 2%，储户陷入'有钱无处安放'的资产荒。平安的分红险产品（以保证现金价值为坚固底仓，叠加特别储备账户平滑波动的分红增值）成为承接银行搬家资金的最佳载体，既有托底确定性，又有分享国家经济成长红利的上行空间。",
+        metaphor: "【生活化买菜比喻】：水库（央行）开闸放水，但水龙头接出来的水（银行利息）温度越来越低、水流越来越细。以前把水随便泼在菜地里（放银行吃利息）菜就能疯长；现在日头大、利息浅，水泼在地上立刻被蒸发。聪明人立刻修了一条防渗漏的水泥管道（年金分红合同），直接把水引流到自家地底下的私人蓄水池（长期保单）里存起来！",
+        pocketPhrase: "“当银行三年期大额存单利率都跌破 2% 时，能写进合同、锁定一辈子的年金与分红险，就是您家庭资产的深水蓄水池。”",
+        selfQuestions: [
+          "银行定期存款利率跌入'1时代'后，客户最大的心理痛点是什么？",
+          "为什么说分红险的'特别储备账户机制'能有效穿越央行降息周期？",
+          "如何运用《简单致富》定投思路向客户阐释'年金保底 + 沪深300指数增强'的双核逻辑？"
+        ]
+      },
+      {
+        id: "news_3_real_estate",
+        category: "property",
+        categoryName: "🏡 房地产止跌与存量房贷",
+        tag: "止跌回稳 · 资产液化",
+        source: "中共中央政治局会议 / 住建部 / 央行",
+        date: "2026年宏观主线",
+        title: "中央政治局定调促进房地产市场“止跌回稳”，批量下调存量房贷利率并严格控增量",
+        importanceBadge: "🔥 居民财富转折点",
+        importanceColor: "bg-blue-500/20 text-blue-300 border-blue-500/40 font-bold",
+        facts: [
+          "政治局会议明确对房地产定调从'防过热、防风险'转为'促进房地产市场止跌回稳'；",
+          "全国商业银行对存量个人住房贷款利率进行批量下调，平均降幅约 0.5 个百分点，年均减少家庭利息支出约 1500 亿元；",
+          "各地取消限购、限售、限价，推动保障房收购存量商品房，商品房全面回归'消费居住属性'。"
+        ],
+        advisorAnalysis: "【投顾与宏观视角】：房地产作为中国家庭过去 20 年首要财富载体（占居民财富近 70%）的造富神话正式终结。'止跌回稳'意味着国家底线是防范系统性断崖，绝非开启新一轮暴涨牛市。房产流动性严重锁死，二手房挂牌量天量积压，变现周期长达 6-18 个月以上，家庭资产必须开启'脱虚向实、从砖头向金融流动资产'的大迁徙。",
+        legalAnalysis: "【法商与家办视角】：房产传承三大硬伤暴露无遗：1) 变现流动性差，无法急用救命；2) 多子女继承时分割极为困难，极易引发共有物分割诉讼；3) 父母过户给子女存在严重的婚内夫妻共同财产混同风险（若无特别约定，婚后赠与房产极易在离婚诉讼中被瓜分）。",
+        insurancePitch: "【年金与大额保单赋能】：把不能动的房产，通过部分置换或租金转化为'活钱年金'。大额终身寿险和年金险在法律上具有人身专属属性，通过指定身故受益人，可以做到'不经公证、防范婚变、绕开法定继承繁琐纠纷'的精准代际定向传承。",
+        metaphor: "【生活化买菜比喻】：以前手里揣着几套房子，就像手里抱着几麻袋沉甸甸的黄金大冬瓜，以为走到哪里都能当硬通货；现在去菜市场买肉，菜摊老板只要切得薄薄的现金肉片（流动性），没人愿意搬你那笨重的冬瓜。存量房贷降息就像冬瓜稍微轻了几斤，但你必须趁早切下一块变成随时能花的碎银子（现金流年金）！",
+        pocketPhrase: "“过去二十年，砖头负责家庭造富；未来三十年，金融资产负责守富。房产负责住，保单负责守，资产必须液化。”",
+        selfQuestions: [
+          "中央定调'止跌回稳'与过去'鼓励购房'的本质区别是什么？",
+          "为什么说拥有多套房产的高客更需要配置大额人寿保单？",
+          "房产继承相比保单指定受益人传承，在法律上有哪三大不可逆风险？"
+        ]
+      },
+      {
+        id: "news_4_retirement_delay",
+        category: "pension",
+        categoryName: "👴 延迟退休与医养支柱",
+        tag: "渐进式退休 · 第三支柱",
+        source: "全国人大常委会第十一届第十一次会议",
+        date: "2026年正式执行",
+        title: "全国人大审议通过渐进式延迟法定退休年龄决定，养老保险缴费年限同步提高",
+        importanceBadge: "🔥 民生国策里程碑",
+        importanceColor: "bg-purple-500/20 text-purple-300 border-purple-500/40 font-bold",
+        facts: [
+          "从 2025 年 1 月 1 日起，用 15 年时间，将男职工法定退休年龄逐步延迟至 63 周岁，女职工分别延迟至 55 周岁、58 周岁；",
+          "从 2030 年 1 月 1 日起，将职工按月领取基本养老金的最低缴费年限由 15 年逐步提高至 20 年；",
+          "国家明确构建第一支柱基本养老、第二支柱企业年金、第三支柱个人商业养老金的多层次养老保障体系。"
+        ],
+        advisorAnalysis: "【投顾与医养解读】：中国老龄化正在进入断崖式提速阶段（60岁以上人口即将突破3.5亿）。第一支柱社保养老金的定位是'保基本、兜底线'，其替代率（退休金占在职收入比例）长期来看难以支撑体面的中产及高客生活品质。想要在 60 岁之后不降低生活质量，第三支柱商业年金不是'买不买'的消费，而是'何时开始建立个人专属粮仓'的刚需。",
+        legalAnalysis: "【法商与代际赋能】：延迟退休带来的直接代际连锁反应是：祖父母辈无法像过去那样在 50-55 岁全职协助带娃，年轻家庭在育儿和工作双重压力下对医疗与家庭照护资源的需求激增；长寿时代下带病生存期延长，认知症、失能护理费用将成为高客家庭最隐秘的财富黑洞。",
+        insurancePitch: "【平安居家养老与康养生态赋能】：平安作为行业领头羊，早已完成'保险产品 + 医疗健康 + 居家养老（1个管家+10大服务+N个专家）'的完整生态闭环。高客买平安年金不仅是买收益，更是买下了锁定未来顶级三甲医院绿通、私董保健医、高品质居家养老适老化改造与照护的稀缺入场券！",
+        metaphor: "【生活化买菜比喻】：村里的公共大食堂（国家社保）以前十个壮劳力养一个老人，饭菜丰盛；现在三个壮劳力要管两个老人，大食堂只能保证每人有一碗清粥温饱。国家白纸黑字通知大家：多干几年再来排队打饭！想要老了以后每天自己开小灶吃排骨（品质医养），三十岁时就必须在自家院子里修好私人地窖（商业年金）！",
+        pocketPhrase: "“延迟退休是国家给每个家庭最确定的提示：国家管温饱生存，品质养老只能靠年轻时的私人商业契约。”",
+        selfQuestions: [
+          "延迟退休政策正式落地，对年轻客户与中年客户的沟通切入点有何不同？",
+          "平安'保险+居家养老'生态相比单纯银行理财最大的排他性竞争优势是什么？",
+          "为什么说养老规划越早启动，复利的时间杠杆越惊人？"
+        ]
+      },
+      {
+        id: "news_5_japan_comparison",
+        category: "global",
+        categoryName: "🇯🇵 日本30年对照 ＆ 美联储",
+        tag: "失落30年 · 低息穿越",
+        source: "宏观金融学术研讨 / 国际清算银行 / 日本央行",
+        date: "2026年深度对照",
+        title: "日本央行正式终结负利率，复盘日本“失落三十年”对中国家庭资产配置的深度对映",
+        importanceBadge: "🔥 宏观深度教科书",
+        importanceColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/40 font-bold",
+        facts: [
+          "日本央行结束长达 8 年的负利率政策，时隔 17 年首次加息，宣告漫长的走出通缩取得阶段性成果；",
+          "复盘 1990-2020 年日本失去的三十年：日本居民在资产泡沫破灭后，长达二十余年优先偿还债务（负债最小化），民间投资欲望长期低迷；",
+          "值得深思的历史事实：在整个日本'失落三十年'低利率与零利率时代，日本家庭的商业保险总配置规模与保费占 GDP 比例不降反升，年金险与长期终身寿成为国民最信赖的压舱石！"
+        ],
+        advisorAnalysis: "【投顾与指数定投对映】：日本的三十年教训给中国投资者提供了最宝贵的实战剧本：1) 单一押注房地产必败；2) 在资产去杠杆周期中，低成本宽基指数（如日本日经225、中国沪深300）在经历估值出清后，通过长期定投是唯一能战胜周期且成本最低的权益翻身路径；3) 核心资产必须有高防御的年金兜底，形成《简单致富》倡导的'防御盾牌 + 进攻长矛'组合。",
+        legalAnalysis: "【家办资产传承对映】：日本在漫长萧条期中伴随着高额遗产税（最高税率达 55%），日本财阀与高净值家族无一例外大量运用人寿保险与信托架构完成免税额度抵扣与财富跨代直通。这对于正在逐步完善全口径金税四期征管的中国高客而言，具有强烈的镜鉴意义。",
+        insurancePitch: "【双核组合销售赋能】：不要非黑即白地让客户'只买保险'或'只炒股'！向高客展示日本三十年真实数据图表：70% 资产放在平安高确定性年金险中筑牢不可摧毁的防波堤（锁定终身现金流），30% 资产通过指数定投分享国家低位复苏红利。进可攻、退可守，家庭永远立于不败之地！",
+        metaphor: "【生活化买菜比喻】：日本三十年大暴雪的真实故事证明：冬天狂风呼啸时，最先冻死的不是没有伞的人，而是穿着单薄夏装还在雪地里到处打赌'明天一定出大太阳'的狂徒。抱紧家里的火炉（年金底仓），吃着耐储存的熏肉，再慢悠悠去冰面上捡冻僵的鱼（低估值指数定投），才是唯一能活到春天的聪明人！",
+        pocketPhrase: "“日本失落三十年里，逆势增长的只有两样东西：高防御的商业保险，和坚守低成本定投的智者。历史从来不重复，但总是押着相同的韵脚。”",
+        selfQuestions: [
+          "在日本零利率时代，为什么日本居民对商业人身险的热情反而空前高涨？",
+          "如何运用'组合销售策略'（年金底仓+指数定投）化解客户'年金收益率不够高'的异议？",
+          "从日本人口老龄化与高额传承税制中，我们能为中国民营企业家提炼出哪三条避坑指南？"
+        ]
+      },
+      {
+        id: "news_6_fed_cut",
+        category: "global",
+        categoryName: "🇯🇵 日本30年对照 ＆ 美联储",
+        tag: "美联储降息 · 全球资产重估",
+        source: "美联储 FOMC 决议 / 全球宏观监测",
+        date: "2026年全球动态",
+        title: "美联储开启新一轮降息周期，全球非美货币汇率与大类资产配置格局迎来变局",
+        importanceBadge: "全球大类资产联动",
+        importanceColor: "bg-blue-500/20 text-blue-300 border-blue-500/40 font-bold",
+        facts: [
+          "美联储联邦公开市场委员会（FOMC）开启降息周期，海外美元无风险基准利率由5%以上高位逐步回落；",
+          "中美利差倒挂幅度显著收窄，人民币汇率贬值压力大幅缓解，为中国国内货币政策打开了更自主充裕的降息降准空间；",
+          "全球黄金与大宗商品价格高位剧烈震荡，全球高净值家族跨境资产配置从单纯逐高息转向'合规安全性第一'。"
+        ],
+        advisorAnalysis: "【投顾与全球配置视角】：过去两年以'存款搬家去香港买5%美元高息定存'的客户，正在面临美元降息后的再投资风险（再投资利息断崖式下跌，且承担汇率反向波动风险）。全球进入降息共振周期，锁长、抗通胀、防波动的全天候资产架构成为家办标配。",
+        legalAnalysis: "【家办跨境合规视角】：在全球 CRS 与金税四期全面并轨的强监管下，无序转移资产海外已被列为重大稽查重点。高客的离岸信托与保单必须具备真实合规架构、经得起穿透审查。",
+        insurancePitch: "【家办跨币种配置赋能】：平安作为国际化综合金融集团，为家办高客提供全方位的资产保护伞。引导客户认识到：汇率博弈是零和游戏，唯有在合规前提下将核心家庭资产锁定在具备强主权信用的特许金融机构中，才是永恒的财富保险箱。",
+        metaphor: "【生活化买菜比喻】：这就好比隔壁村的杂货铺（美元）前两年为了拉拢生意，吆喝存钱给5块钱利息，很多村民兴冲冲换了车票跑去存钱；现在杂货铺也撑不住开始降息了，折腾来回的车票钱和汇率手续费一扣，很多村民发现自己竹篮打水一场空。真正的大户从来不去赶集凑热闹，而是守好自家的良田深井！",
+        pocketPhrase: "“浮动的高息转瞬即逝，周期的潮水终会退去。全球降息时代，安全合规的保单才是穿越国界的坚固压舱石。”",
+        selfQuestions: [
+          "美联储降息如何为中国国内宏观货币宽松'松绑'？",
+          "面对过去追求香港美元高息存款的客户，如何用'再投资风险与汇率双刃剑'说服其回归境内优质稳健配置？",
+          "家办客户在跨境资产配置中首要考虑的合规红线是什么？"
+        ]
+      },
+      {
+        id: "news_7_company_law",
+        category: "law",
+        categoryName: "⚖️ 新公司法与家产隔离",
+        tag: "新公司法实缴 · 股东连带责任",
+        source: "全国人大常委会 / 最高人民法院民商事审判精神",
+        date: "2026年深化实施",
+        title: "新《公司法》深化实施：5年限期实缴全面推进，股东出资加速到期与连带清偿责任严格穿透",
+        importanceBadge: "🔥 企业家生死红线",
+        importanceColor: "bg-rose-500/20 text-rose-300 border-rose-500/40 font-bold",
+        facts: [
+          "新《公司法》明确规定有限责任公司全体股东认缴的出资额由股东按照公司章程的规定自公司成立之日起五年内缴足；",
+          "强化董事会催缴出资义务与股东失权制度，明确公司不能清偿到期债务时，未届出资期限的股东出资加速到期；",
+          "严格界定一人有限责任公司财产混同举证责任倒置，严打公私账户不分、逃废债务等行为。"
+        ],
+        advisorAnalysis: "【投顾与财务合规视角】：很多民营企业家过去习惯注册大额注册资本（如几千万）来撑门面，如今5年实缴大限逼近，面临巨额资金补缴压力；若盲目减资，程序繁琐且需公告债权人，处理不当会直接引发银行断贷与供应链挤兑。",
+        legalAnalysis: "【法商专家深度拆解】：新法不仅穿透股东，还赋予债权人前所未有的穿透追索权！公私账户混同（用个人微信/支付宝收公司货款、公司买车买房个人私用）的企业主，个人家庭财产直接被推定为公司连带清偿标的，过去'有限责任'的遮羞布被彻底撕碎！",
+        insurancePitch: "【法商大额保单隔离赋能】：必须指导企业家在公司经营顺风顺水、无债务逾期时，合法合规地提取税后分红，通过建立'家庭合法财产的防火墙'！保单在法律上具有人身依附性，以投保人合法税后收入为配偶或子女投保终身年金，指定子女为唯一受益人，在没有恶意逃废债的前提下，受《保险法》第23条与《民法典》严格保护，不被轻易视为破产追偿财产。",
+        metaphor: "【生活化买菜比喻】：以前做生意就像开一条大商船（公司），老板可以带上全家老小的行李（私人财产）堆在甲板上，反正以为船沉了也只是船沉（有限责任）；新公司法直接焊死了一条铁律：只要发现你把家里的米和船上的货混在一个柜子里，船一旦沉了，债主有权直接把你们全家老小的屋子全部推平抵债！老板必须在开船前，提前把家里的口粮锁进悬崖峭壁上的私人保险柜（合规保单与信托）！",
+        pocketPhrase: "“新《公司法》实施后，公司和个人的防火墙只有在没有火的时候建才有效；年金保单就是您在晴天为家人筑起的法定避难所。”",
+        selfQuestions: [
+          "新《公司法》5年实缴制对注册资本虚高的民营企业主带来哪些现实风险？",
+          "为什么说'公私账户混同'是摧毁企业主有限责任保护的第一杀手？",
+          "如何运用法商工具合法合规地将企业分红转化为不可追偿的家庭专属年金？"
+        ]
+      }
+    ];
+
+    let currentNewsCategory = 'all';
+    let newsData = [];
+
+    window.addEventListener("DOMContentLoaded", () => {
+      startClock();
+      loadNewsData();
+      renderNewsList();
+      updatePillCounts();
+    });
+
+    function startClock() {
+      const update = () => {
+        const now = new Date();
+        const str = now.toLocaleTimeString('zh-CN', { hour12: false, timeZone: 'Asia/Shanghai' });
+        const dateStr = now.toLocaleDateString('zh-CN', { month: '2-digit', day: '2-digit', timeZone: 'Asia/Shanghai' });
+        const el = document.getElementById("beijing-clock");
+        if (el) el.innerText = `${dateStr} ${str}`;
+      };
+      update();
+      setInterval(update, 1000);
+    }
+
+    function loadNewsData() {
+      const cached = localStorage.getItem("andre_macro_news_v1");
+      if (cached) {
+        try {
+          newsData = JSON.parse(cached);
+          return;
+        } catch (e) {
+          console.warn("Parse cache error, loading defaults", e);
+        }
+      }
+      newsData = [...DEFAULT_NEWS_DATA];
+      localStorage.setItem("andre_macro_news_v1", JSON.stringify(newsData));
+    }
+
+    function updatePillCounts() {
+      const totalEl = document.getElementById("stat-total");
+      const catCountAll = document.getElementById("cat-count-all");
+      if (totalEl) totalEl.innerText = newsData.length;
+      if (catCountAll) catCountAll.innerText = newsData.length;
+    }
+
+    function setNewsCategory(cat) {
+      currentNewsCategory = cat;
+      document.querySelectorAll(".news-cat-pill").forEach(el => {
+        el.classList.remove("bg-amber-500", "text-white");
+        el.classList.add("bg-dark-800", "text-slate-300");
+      });
+      const activeBtn = document.getElementById("btn-cat-" + cat);
+      if (activeBtn) {
+        activeBtn.classList.remove("bg-dark-800", "text-slate-300");
+        activeBtn.classList.add("bg-amber-500", "text-white");
+      }
+      renderNewsList();
+    }
+
+    function renderNewsList() {
+      const container = document.getElementById("news-container");
+      const query = (document.getElementById("news-search").value || "").trim().toLowerCase();
+
+      const filtered = newsData.filter(item => {
+        // Category filter
+        if (currentNewsCategory !== 'all' && item.category !== currentNewsCategory) {
+          return false;
+        }
+        // Search query
+        if (query) {
+          const matchStr = (item.title + item.facts.join("") + item.advisorAnalysis + item.legalAnalysis + item.insurancePitch + item.metaphor + item.pocketPhrase).toLowerCase();
+          return matchStr.includes(query);
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="p-12 text-center text-slate-500 bg-dark-850 rounded-2xl border border-dashed border-dark-700">
+            <span class="text-3xl block mb-2">🔍</span>
+            <p class="text-sm text-slate-400">未找到匹配的国家要闻解读</p>
+            <p class="text-xs mt-1 text-slate-600">可调整搜索词，或点击右上角“➕ 录入新要闻”自主沉淀</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map((item, idx) => {
+        return `
+          <div class="bg-dark-850 rounded-2xl border border-dark-700/80 hover:border-amber-500/40 transition-all duration-200 overflow-hidden shadow-lg" id="card-${item.id}">
+            
+            <!-- HEADER (Click to Toggle Drill-down) -->
+            <div onclick="toggleNewsCard('${item.id}')" class="p-4 md:p-5 cursor-pointer hover:bg-dark-800/80 transition-colors space-y-2">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="text-xs px-2.5 py-0.5 rounded-full bg-dark-800 text-amber-300 border border-dark-600 font-mono font-bold">
+                    ${item.categoryName}
+                  </span>
+                  <span class="text-xs px-2.5 py-0.5 rounded-full ${item.importanceColor} font-mono">
+                    ${item.importanceBadge}
+                  </span>
+                  <span class="text-[11px] text-slate-400 font-mono">
+                    📅 ${item.date}
+                  </span>
+                </div>
+                
+                <span class="text-[11px] text-slate-400 font-mono bg-dark-900/60 px-2 py-0.5 rounded border border-dark-700">
+                  权威源：${item.source}
+                </span>
+              </div>
+
+              <h2 class="text-sm md:text-base font-bold text-white group-hover:text-amber-400 transition-colors leading-snug">
+                ${item.title}
+              </h2>
+
+              <!-- Key Facts Summary Bullets -->
+              <div class="bg-dark-900/50 p-2.5 rounded-xl border border-dark-750 text-xs text-slate-300 space-y-1">
+                <div class="text-[11px] text-slate-400 font-bold flex items-center gap-1">
+                  <span>📰 官方核心大政要点：</span>
+                </div>
+                ${item.facts.map(f => `<div class="text-slate-300 leading-relaxed text-[11px] flex items-start gap-1.5"><span class="text-amber-400 shrink-0">•</span><span>${f}</span></div>`).join("")}
+              </div>
+
+              <!-- Pocket Phrase Highlight Bar -->
+              <div class="bg-amber-500/10 border border-amber-500/30 p-2.5 rounded-xl flex items-center justify-between gap-2">
+                <div class="text-xs text-amber-200 line-clamp-1 flex items-center gap-1.5">
+                  <span class="text-sm shrink-0">💬</span>
+                  <strong class="text-amber-400 shrink-0">展业口袋短语:</strong>
+                  <span class="italic font-serif">${item.pocketPhrase}</span>
+                </div>
+                <div class="flex items-center gap-1 shrink-0">
+                  <button onclick="event.stopPropagation(); copyText('${escapeAttr(item.pocketPhrase)}', '口袋短语已复制')" class="px-2 py-0.5 rounded bg-dark-800 hover:bg-dark-750 text-[10px] text-amber-300 border border-amber-500/30 transition-colors">
+                    复制金句
+                  </button>
+                  <span id="arrow-${item.id}" class="text-xs text-slate-400 transform transition-transform ml-1">▼</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- DRILL-DOWN DEEP DIVE (Tri-Expert & Metaphor) -->
+            <div id="content-${item.id}" class="hidden border-t border-dark-700 bg-dark-900/90 p-4 md:p-5 space-y-4">
+              
+              <!-- 1. 生活化买菜通俗解释 (双层解释法第一层) -->
+              <div class="p-3.5 rounded-xl bg-gradient-to-r from-emerald-950/40 via-dark-800 to-emerald-950/20 border border-emerald-500/30 space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-emerald-300 flex items-center gap-1.5">
+                    <span>🍎</span> 双层解释法 · 生活化大白话类比 (小白秒懂)
+                  </span>
+                  <button onclick="copyText('${escapeAttr(item.metaphor)}', '通俗比喻已复制')" class="px-2 py-0.5 rounded bg-dark-800 text-[10px] text-emerald-300 border border-emerald-500/30">复制比喻</button>
+                </div>
+                <p class="text-xs text-slate-200 leading-relaxed font-sans">${item.metaphor}</p>
+              </div>
+
+              <!-- 2. 三师共诊视角穿透 (双层解释法第二层：底层精算与法律机制) -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <!-- 投顾视角 -->
+                <div class="p-3 rounded-xl bg-dark-800 border border-blue-500/30 space-y-1.5">
+                  <div class="text-xs font-bold text-blue-400 flex items-center gap-1">
+                    <span>📊</span> 投顾与宏观传导
+                  </div>
+                  <p class="text-[11px] text-slate-300 leading-relaxed">${item.advisorAnalysis}</p>
+                </div>
+
+                <!-- 法商视角 -->
+                <div class="p-3 rounded-xl bg-dark-800 border border-purple-500/30 space-y-1.5">
+                  <div class="text-xs font-bold text-purple-400 flex items-center gap-1">
+                    <span>⚖️</span> 法商与家办隔离
+                  </div>
+                  <p class="text-[11px] text-slate-300 leading-relaxed">${item.legalAnalysis}</p>
+                </div>
+
+                <!-- 年金与医养赋能 -->
+                <div class="p-3 rounded-xl bg-dark-800 border border-amber-500/30 space-y-1.5">
+                  <div class="text-xs font-bold text-amber-400 flex items-center gap-1">
+                    <span>🛡️</span> 年金与医养赋能
+                  </div>
+                  <p class="text-[11px] text-slate-300 leading-relaxed">${item.insurancePitch}</p>
+                </div>
+              </div>
+
+              <!-- 3. 三道检验是否真懂的自测题 -->
+              <div class="p-3 rounded-xl bg-dark-800/80 border border-dark-700 space-y-1.5 text-xs">
+                <div class="text-slate-400 font-bold flex items-center gap-1">
+                  <span>📝</span> 检验是否真正吃透大政的三道自测追问：
+                </div>
+                <div class="space-y-1 text-[11px] text-slate-300">
+                  ${item.selfQuestions ? item.selfQuestions.map((q, qIdx) => `<div><strong class="text-amber-400/90 font-mono">Q${qIdx + 1}:</strong> ${q}</div>`).join("") : ''}
+                </div>
+              </div>
+
+              <!-- Quick Action Footprint -->
+              <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-dark-700/60 text-xs">
+                <span class="text-[11px] text-slate-500 font-mono">ID: ${item.id} · 已同步心智雷达认知体系</span>
+                <div class="flex items-center gap-2">
+                  <button onclick="copyFullInterpretation('${item.id}')" class="px-3 py-1 rounded-lg bg-dark-750 hover:bg-dark-700 text-amber-400 font-medium border border-dark-600 flex items-center gap-1 transition-all">
+                    <span>📋</span> 复制整篇解读
+                  </button>
+                  <a href="../mindradar/index.html" class="px-3 py-1 rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-bold flex items-center gap-1 transition-all shadow-sm">
+                    <span>⚡</span> 联动心智雷达
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        `;
+      }).join("");
+    }
+
+    function toggleNewsCard(id) {
+      const content = document.getElementById("content-" + id);
+      const arrow = document.getElementById("arrow-" + id);
+      if (content.classList.contains("hidden")) {
+        content.classList.remove("hidden");
+        if (arrow) arrow.style.transform = "rotate(180deg)";
+      } else {
+        content.classList.add("hidden");
+        if (arrow) arrow.style.transform = "rotate(0deg)";
+      }
+    }
+
+    function toggleAllNews(open) {
+      newsData.forEach(item => {
+        const content = document.getElementById("content-" + item.id);
+        const arrow = document.getElementById("arrow-" + item.id);
+        if (content) {
+          if (open) {
+            content.classList.remove("hidden");
+            if (arrow) arrow.style.transform = "rotate(180deg)";
+          } else {
+            content.classList.add("hidden");
+            if (arrow) arrow.style.transform = "rotate(0deg)";
+          }
+        }
+      });
+    }
+
+    function openAddNewsModal() {
+      document.getElementById("modal-add-news").classList.remove("hidden");
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add("hidden");
+    }
+
+    function saveCustomNews() {
+      const title = document.getElementById("new-news-title").value.trim();
+      if (!title) { alert("请输入要闻标题"); return; }
+      const cat = document.getElementById("new-news-category").value;
+      const source = document.getElementById("new-news-source").value.trim() || "官方权威发布";
+      const factsText = document.getElementById("new-news-facts").value.trim();
+      const facts = factsText ? factsText.split('\n').filter(x => x.trim()) : ["核心政策细节正在深化落实中。"];
+      const advisor = document.getElementById("new-news-advisor").value.trim() || "【投顾解读】：引导资金脱虚向实，利好长期稳健确定性配置。";
+      const legal = document.getElementById("new-news-legal").value.trim() || "【法商解读】：严守合规底线，筑牢家庭防火墙。";
+      const metaphor = document.getElementById("new-news-metaphor").value.trim() || "【生活比喻】：把不确定的天气变成自家恒温的大棚。";
+      const phrase = document.getElementById("new-news-phrase").value.trim() || "“顺应国家大政所向，筑牢家庭确定性财富根基。”";
+
+      const catNames = {
+        fiscal: "🇨🇳 顶层财政与加力化债",
+        monetary: "💰 央行宽松与资本市场",
+        property: "🏡 房地产止跌与存量房贷",
+        pension: "👴 延迟退休与医养支柱",
+        global: "🇯🇵 日本30年对照 ＆ 美联储",
+        law: "⚖️ 新公司法与家产隔离"
+      };
+
+      const newItem = {
+        id: "news_" + Date.now(),
+        category: cat,
+        categoryName: catNames[cat] || "国家大政要闻",
+        tag: "自主录入解读",
+        source: source,
+        date: new Date().toLocaleDateString('zh-CN'),
+        title: title,
+        importanceBadge: "重点要闻",
+        importanceColor: "bg-amber-500/20 text-amber-300 border-amber-500/40 font-bold",
+        facts: facts,
+        advisorAnalysis: advisor,
+        legalAnalysis: legal,
+        insurancePitch: "【展业赋能】：以国家政策为事实切入点，协助客户搭建家庭压舱石。",
+        metaphor: metaphor,
+        pocketPhrase: phrase,
+        selfQuestions: [
+          "该政策对高客资产配置的直接传导路径是什么？",
+          "如何用一句话通俗向外勤阐释该政策的核心要点？",
+          "展业陪谈时如何自然切入保险与年金配置？"
+        ]
+      };
+
+      newsData.unshift(newItem);
+      localStorage.setItem("andre_macro_news_v1", JSON.stringify(newsData));
+      closeModal("modal-add-news");
+      updatePillCounts();
+      renderNewsList();
+      showToast("✅ 新要闻已成功收录！");
+    }
+
+    function copyText(text, msg) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => showToast(msg));
+      } else {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        showToast(msg);
+      }
+    }
+
+    function copyFullInterpretation(id) {
+      const item = newsData.find(x => x.id === id);
+      if (!item) return;
+      const fullText = `【热点国家要闻与深度解读】\n标题：${item.title}\n权威源：${item.source} (${item.date})\n\n【官方核心大政要点】：\n${item.facts.map(f => '• ' + f).join('\n')}\n\n${item.metaphor}\n\n${item.advisorAnalysis}\n\n${item.legalAnalysis}\n\n${item.insurancePitch}\n\n【高客陪谈口袋短语】：\n${item.pocketPhrase}`;
+      copyText(fullText, "整篇深度解读已复制到剪贴板！");
+    }
+
+    function escapeAttr(str) {
+      if (!str) return "";
+      return str.replace(/'/g, "\\'");
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      const toastMsg = document.getElementById("toast-msg");
+      if (toast && toastMsg) {
+        toastMsg.innerText = msg;
+        toast.classList.remove("translate-y-20", "opacity-0");
+        setTimeout(() => {
+          toast.classList.add("translate-y-20", "opacity-0");
+        }, 2200);
+      }
+    }
+  </script>
+</body>
+</html>

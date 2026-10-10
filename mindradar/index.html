@@ -56,6 +56,9 @@
       </a>
 
     <div class="flex items-center gap-1.5 md:gap-2.5">
+      <a href="../news/index.html" class="px-2.5 py-1.5 rounded-lg bg-dark-750 hover:bg-dark-700 border border-dark-600 text-blue-400 text-xs font-medium flex items-center gap-1 transition-all mr-1" title="热点国家新闻追踪与三师深度解读">
+        <span>🌐</span> <span class="hidden sm:inline">国家要闻中枢</span>
+      </a>
       <!-- QR Code Mobile Pairing Button (For PC user to scan) -->
       <button onclick="openMobileQrModal()" class="px-2.5 py-1.5 rounded-lg bg-dark-750 hover:bg-dark-700 border border-dark-600 text-amber-400 text-xs font-medium flex items-center gap-1 transition-all" title="手机扫码在手机上使用">
         <span>📱</span> <span class="hidden sm:inline">手机直连</span>
@@ -94,6 +97,10 @@
     </button>
     <button onclick="switchTab('tab-ai')" id="nav-tab-ai" class="tab-btn px-4 py-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2">
       <span>🤖</span> 三师无情质询与AI会诊
+    </button>
+    <button onclick="switchTab('tab-news')" id="nav-tab-news" class="tab-btn px-4 py-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2">
+      <span>🌐</span> 国家要闻与宏观解读
+      <span class="px-1.5 py-0.2 rounded-full bg-blue-500/20 text-blue-400 text-[10px] font-mono font-bold">新上线</span>
     </button>
   </nav>
 
@@ -134,6 +141,28 @@
               <span>⚡</span> 极速存入并自动解构
             </button>
           </div>
+        </div>
+      </div>
+
+      <!-- 🌐 NATIONAL MACRO NEWS & POLICY RADAR TICKER -->
+      <div class="bg-gradient-to-r from-blue-950/40 via-dark-850 to-amber-950/30 rounded-2xl border border-blue-500/30 p-3.5 md:p-4 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <span class="text-base">🌐</span>
+            <strong class="text-xs md:text-sm text-white font-bold">热点国家要闻与三师宏观风向标</strong>
+            <span class="text-[10px] px-2 py-0.2 rounded-full bg-blue-500/20 text-blue-300 font-mono">已收录7大战略大政</span>
+          </div>
+          <p class="text-[11px] text-slate-300 leading-relaxed">
+            涵盖顶层财政化债、央行宽松、房地产止跌、延迟退休、日本三十年对照与新公司法，提供三师透析与通俗买菜比喻。
+          </p>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <button onclick="switchTab('tab-news')" class="px-3 py-1.5 rounded-lg bg-blue-600/30 hover:bg-blue-600/50 text-blue-300 border border-blue-500/40 text-xs font-semibold flex items-center gap-1 transition-all">
+            <span>📖</span> 站内速读解读
+          </button>
+          <a href="../news/index.html" class="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold flex items-center gap-1 transition-all shadow-sm">
+            <span>🚀</span> 打开全景中枢 &rarr;
+          </a>
         </div>
       </div>
 
@@ -541,7 +570,11 @@
       <span class="text-[10px] mt-0.5">实验</span>
     </button>
 
-    <button onclick="switchTab('tab-storage')" id="m-nav-tab-storage" class="m-nav-btn flex flex-col items-center justify-center py-1 px-3 text-slate-400 transition-all">
+    <button onclick="switchTab('tab-news')" id="m-nav-tab-news" class="m-nav-btn flex flex-col items-center justify-center py-1 px-2.5 text-slate-400 transition-all">
+      <span class="text-lg">🌐</span>
+      <span class="text-[10px] mt-0.5">要闻</span>
+    </button>
+    <button onclick="switchTab('tab-storage')" id="m-nav-tab-storage" class="m-nav-btn flex flex-col items-center justify-center py-1 px-2.5 text-slate-400 transition-all">
       <span class="text-lg">☁️</span>
       <span class="text-[10px] mt-0.5">储存</span>
     </button>
@@ -721,6 +754,7 @@
       renderDefects();
       renderBlindspots();
       renderExperiments();
+      renderRadarNews();
     });
 
     // Switch Tab (handles both desktop & mobile bottom nav)
