@@ -60,7 +60,11 @@
         <span>🌐</span> <span class="hidden sm:inline">国家要闻中枢</span>
       </a>
       <!-- QR Code Mobile Pairing Button (For PC user to scan) -->
-      <button onclick="openMobileQrModal()" class="px-2.5 py-1.5 rounded-lg bg-dark-750 hover:bg-dark-700 border border-dark-600 text-amber-400 text-xs font-medium flex items-center gap-1 transition-all" title="手机扫码在手机上使用">
+            <!-- 📚 Book Search Tool Link -->
+      <a href="https://github.com/heartleo/zlib" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-lg bg-indigo-950/60 hover:bg-indigo-900/80 border border-indigo-500/40 text-indigo-300 text-xs font-medium flex items-center gap-1 transition-all mr-1" title="Z-Library 命令行搜书神器 (heartleo/zlib)">
+        <span>📚</span> <span class="hidden sm:inline">搜书神器</span>
+      </a>
+<button onclick="openMobileQrModal()" class="px-2.5 py-1.5 rounded-lg bg-dark-750 hover:bg-dark-700 border border-dark-600 text-amber-400 text-xs font-medium flex items-center gap-1 transition-all" title="手机扫码在手机上使用">
         <span>📱</span> <span class="hidden sm:inline">手机直连</span>
       </button>
 
@@ -102,6 +106,10 @@
       <span>🌐</span> 国家要闻与宏观解读
       <span class="px-1.5 py-0.2 rounded-full bg-blue-500/20 text-blue-400 text-[10px] font-mono font-bold">新上线</span>
     </button>
+      <a href="https://github.com/heartleo/zlib" target="_blank" rel="noopener noreferrer" class="px-4 py-3 border-b-2 border-transparent text-indigo-400 hover:text-indigo-200 flex items-center gap-2 transition-all">
+      <span>📚</span> 极速搜书神器 (zlib)
+      <span class="px-1.5 py-0.2 rounded-full bg-indigo-500/20 text-indigo-300 text-[10px] font-mono font-bold">外部神器 ↗</span>
+    </a>
   </nav>
 
   <!-- MAIN VIEWPORT -->
@@ -162,6 +170,25 @@
           </button>
           <a href="../news/index.html" class="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold flex items-center gap-1 transition-all shadow-sm">
             <span>🚀</span> 打开全景中枢 &rarr;
+          </a>
+        </div>
+      </div>
+
+            <!-- 📚 EFFICIENCY TOOL: Z-LIB BOOK SEARCH -->
+      <div class="bg-gradient-to-r from-purple-950/40 via-dark-850 to-indigo-950/40 rounded-2xl border border-indigo-500/30 p-3.5 md:p-4 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <span class="text-base">📚</span>
+            <strong class="text-xs md:text-sm text-white font-bold">个人绩效功能台 · Z-Library 极速搜书神器</strong>
+            <span class="text-[10px] px-2 py-0.2 rounded-full bg-indigo-500/20 text-indigo-300 font-mono">heartleo/zlib</span>
+          </div>
+          <p class="text-[11px] text-slate-300 leading-relaxed">
+            Z-Library 开源终端图书检索与极速下载利器，支持书名/作者/ISBN交互搜索、直发Kindle及AI Agent生态调用。
+          </p>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <a href="https://github.com/heartleo/zlib" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow-sm">
+            <span>🚀</span> 打开搜书仓库 &rarr;
           </a>
         </div>
       </div>

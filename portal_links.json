@@ -13,6 +13,19 @@
     "isHero": true
   },
   {
+    "id": "zlib_search",
+    "title": "Z-Lib 极速搜书神器 (heartleo/zlib)",
+    "category": "work",
+    "categoryName": "工作与管理",
+    "icon": "📚",
+    "tag": "极速搜书 · 文献下载",
+    "badge": "搜书神器",
+    "url": "https://github.com/heartleo/zlib",
+    "desc": "基于 Z-Library 的开源命令行搜书与电子书下载利器，支持终端交互检索、Kindle 直推与 AI Agent 知识库直通。",
+    "status": "active",
+    "isHero": false
+  },
+  {
     "id": "work_list",
     "title": "日常工作清单系统",
     "category": "work",
