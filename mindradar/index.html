@@ -103,8 +103,8 @@
       <span>🤖</span> 三师无情质询与AI会诊
     </button>
     <button onclick="switchTab('tab-news')" id="nav-tab-news" class="tab-btn px-4 py-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2">
-      <span>🌐</span> 国家要闻与宏观解读
-      <span class="px-1.5 py-0.2 rounded-full bg-blue-500/20 text-blue-400 text-[10px] font-mono font-bold">新上线</span>
+      <span>📈</span> 每日经济日报与宏观
+      <span class="px-1.5 py-0.2 rounded-full bg-amber-500/20 text-amber-400 text-[10px] font-mono font-bold">每日更新</span>
     </button>
       <a href="https://github.com/heartleo/zlib" target="_blank" rel="noopener noreferrer" class="px-4 py-3 border-b-2 border-transparent text-indigo-400 hover:text-indigo-200 flex items-center gap-2 transition-all">
       <span>📚</span> 极速搜书神器 (zlib)
@@ -152,24 +152,24 @@
         </div>
       </div>
 
-      <!-- 🌐 NATIONAL MACRO NEWS & POLICY RADAR TICKER -->
-      <div class="bg-gradient-to-r from-blue-950/40 via-dark-850 to-amber-950/30 rounded-2xl border border-blue-500/30 p-3.5 md:p-4 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <!-- 📈 NATIONAL MACRO NEWS & POLICY RADAR TICKER -->
+      <div class="bg-gradient-to-r from-amber-950/40 via-dark-850 to-blue-950/30 rounded-2xl border border-amber-500/30 p-3.5 md:p-4 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div class="space-y-1">
           <div class="flex items-center gap-2">
-            <span class="text-base">🌐</span>
-            <strong class="text-xs md:text-sm text-white font-bold">热点国家要闻与三师宏观风向标</strong>
-            <span class="text-[10px] px-2 py-0.2 rounded-full bg-blue-500/20 text-blue-300 font-mono">已收录7大战略大政</span>
+            <span class="text-base">📈</span>
+            <strong class="text-xs md:text-sm text-white font-bold">金华家办 · 每日经济日报与宏观水温</strong>
+            <span class="text-[10px] px-2 py-0.2 rounded-full bg-amber-500/20 text-amber-300 font-mono font-bold">2026-11-16 最新</span>
           </div>
           <p class="text-[11px] text-slate-300 leading-relaxed">
-            涵盖顶层财政化债、央行宽松、房地产止跌、延迟退休、日本三十年对照与新公司法，提供三师透析与通俗买菜比喻。
+            十维宏观数据全景矩阵 · ECharts 交互大屏 · 三师共诊透析 · 通俗买菜比喻 · 晨会展业两分钟口袋短语。
           </p>
         </div>
         <div class="flex items-center gap-2 shrink-0">
-          <button onclick="switchTab('tab-news')" class="px-3 py-1.5 rounded-lg bg-blue-600/30 hover:bg-blue-600/50 text-blue-300 border border-blue-500/40 text-xs font-semibold flex items-center gap-1 transition-all">
-            <span>📖</span> 站内速读解读
+          <button onclick="switchTab('tab-news')" class="px-3.5 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-xs font-semibold flex items-center gap-1 transition-all">
+            <span>📖</span> 站内速读日报
           </button>
-          <a href="../news/index.html" class="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold flex items-center gap-1 transition-all shadow-sm">
-            <span>🚀</span> 打开全景中枢 &rarr;
+          <a href="../news/index.html" class="px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold flex items-center gap-1 transition-all shadow-sm">
+            <span>🚀</span> 打开全屏大屏 &rarr;
           </a>
         </div>
       </div>
@@ -573,6 +573,288 @@
       </div>
     </div>
 
+  <!-- ================= TAB: DAILY ECONOMIC BRIEFING (金华平安家办 · 每日经济日报) ================= -->
+    <div id="tab-news" class="tab-content hidden space-y-4 md:space-y-6">
+      
+      <!-- Top Title & Quick Actions Banner -->
+      <div class="bg-gradient-to-r from-amber-500/15 via-dark-850 to-blue-500/10 rounded-2xl border-2 border-amber-500/40 p-4 md:p-6 shadow-xl relative overflow-hidden">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-dark-700/80 pb-4">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">📈</span>
+              <h2 class="text-base md:text-lg font-bold text-white tracking-wide">
+                金华平安家办 · 每日经济日报
+              </h2>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-mono font-bold animate-pulse">
+                ● 2026-11-16 最新
+              </span>
+            </div>
+            <p class="text-xs text-slate-300">
+              宏观大盘透视 · 十维商业水温速查 · 三师共诊穿透 · 生活化买菜比喻 · 晨会与高客破冰口袋短语
+            </p>
+          </div>
+          
+          <div class="flex items-center gap-2 shrink-0">
+            <a href="../news/index.html" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 text-white text-xs font-bold shadow-md shadow-amber-900/30 flex items-center gap-1.5 transition-all">
+              <span>🚀</span> 打开 ECharts 全景大屏 ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- 🧭 今日核心主线导读 -->
+        <div class="mt-4 p-3.5 bg-dark-900/80 rounded-xl border border-dark-700/80 text-xs md:text-sm text-slate-200 leading-relaxed">
+          <strong class="text-amber-400 block mb-1">🧭 今日核心主线导读 (2026-11-16)：</strong>
+          截至 2026-11-16，中国宏观经济正处于“政策发力增量与微观需求恢复”的关键交汇期。单看个别指标容易一叶障目，必须通过【十维宏观数据全景矩阵】横向穿透：从 M1/M2 剪刀差看流动性淤堵、从 PPI/CPI 差值看工业利润被内卷挤压、从 PMI 生产与订单背离看行业产能出清、从利率中枢走低看无风险收益率重塑、从地方化债看民企账款现金流。全图表、全量化、不空谈，为实业与财富对话提供最有力的客观锚点。
+        </div>
+
+        <!-- ⚡ 4大关键微观水温秒懂卡 -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mt-4">
+          <div class="p-3 bg-dark-850/90 rounded-xl border border-amber-500/30">
+            <div class="text-[11px] text-slate-400 mb-1 flex items-center justify-between">
+              <span>M1/M2 剪刀差</span>
+              <span class="text-amber-400 font-mono text-[10px]">资金活化度</span>
+            </div>
+            <div class="text-lg md:text-xl font-extrabold text-amber-400 font-mono">-9.6%</div>
+            <div class="text-[10px] text-slate-400 mt-1">M2 8.2% vs M1 -1.4%，大水库满但毛细血管偏冷，资金定存防守</div>
+          </div>
+          <div class="p-3 bg-dark-850/90 rounded-xl border border-rose-500/30">
+            <div class="text-[11px] text-slate-400 mb-1 flex items-center justify-between">
+              <span>PPI 工业出厂价</span>
+              <span class="text-rose-400 font-mono text-[10px]">实业毛利</span>
+            </div>
+            <div class="text-lg md:text-xl font-extrabold text-rose-400 font-mono">-2.1%</div>
+            <div class="text-[10px] text-slate-400 mt-1">出厂价持续承压，企业面临“有营收无利润”内卷，降价难救市</div>
+          </div>
+          <div class="p-3 bg-dark-850/90 rounded-xl border border-cyan-500/30">
+            <div class="text-[11px] text-slate-400 mb-1 flex items-center justify-between">
+              <span>10年期国债收益率</span>
+              <span class="text-cyan-400 font-mono text-[10px]">无风险利率</span>
+            </div>
+            <div class="text-lg md:text-xl font-extrabold text-cyan-400 font-mono">2.12%</div>
+            <div class="text-[10px] text-slate-400 mt-1">大行定存跌破1.5%，无风险收益资产绝迹，长期确定性分红稀缺</div>
+          </div>
+          <div class="p-3 bg-dark-850/90 rounded-xl border border-emerald-500/30">
+            <div class="text-[11px] text-slate-400 mb-1 flex items-center justify-between">
+              <span>沪深300市盈率</span>
+              <span class="text-emerald-400 font-mono text-[10px]">权益底仓</span>
+            </div>
+            <div class="text-lg md:text-xl font-extrabold text-emerald-400 font-mono">12.8倍</div>
+            <div class="text-[10px] text-slate-400 mt-1">十年历史45%分位，估值中位偏低，适合金字塔定投分批布局</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🏛️ 三师共诊 · 今日宏观与实业破局透析 (三列高维卡片) -->
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm font-bold text-white flex items-center gap-2">
+            <span>⚖️</span> 三师共诊 · 今日宏观与实业破局透析
+          </h3>
+          <span class="text-[11px] text-slate-400 font-mono">拒绝单一视角 · 三方协同会诊</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          
+          <div class="p-4 rounded-xl bg-dark-850 border border-blue-500/30 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-blue-400 flex items-center gap-1.5">
+                <span>🏛️</span> 民商法律师视角
+              </span>
+              <span class="text-[10px] px-1.5 py-0.2 rounded bg-blue-500/20 text-blue-300 font-mono">合规与隔离</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              <strong>【新公司法实缴与债务隔离】</strong>当前微观去杠杆与化债背景下，企业对外担保与抽逃出资追责空前严厉。老板个人与公司财务混同是致命死穴，必须通过<strong>“企业法人治理规范 + 家庭资产与大额保单防火墙”</strong>截断连带清偿风险。
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-dark-850 border border-amber-500/30 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-amber-400 flex items-center gap-1.5">
+                <span>💼</span> 投顾理财规划师视角
+              </span>
+              <span class="text-[10px] px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 font-mono">资产重塑</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              <strong>【告别高息幻想，锁定长期现金流】</strong>10年期国债击穿2.1%，大行定存全面进入1时代。激进搏高息的时代彻底结束。高净值家庭底盘必须配置<strong>“分红险特别储备金机制 + 终身年金现金流”</strong>，用刚性契约抵御未来长周期低利率侵蚀。
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-dark-850 border border-emerald-500/30 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
+                <span>🏭</span> 实业与医养专家视角
+              </span>
+              <span class="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 font-mono">降本与出海</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              <strong>【以出海破内卷，以家办护身心】</strong>单纯国内降价内卷等于慢性失血，义乌/金华实业应积极借助东盟与拉美顺差红利出海。同时，企业家自身精力有限，通过家办前置锁定<strong>“名医绿通 + 高品质居家康养”</strong>，是守住基业的隐形支柱。
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 🔍 十维宏观核心指标速查矩阵折叠 -->
+      <div class="bg-dark-850 rounded-2xl border border-dark-700 p-4 md:p-5 shadow-sm space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm font-bold text-white flex items-center gap-2">
+            <span>🔍</span> 十维宏观核心指标速查矩阵 (商业水温与高客谈资)
+          </h3>
+          <span class="text-[10px] text-amber-400 font-mono">全量化速查</span>
+        </div>
+        
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-dark-700 text-slate-400">
+                <th class="py-2 px-2.5">维度与指标</th>
+                <th class="py-2 px-2.5">最新值 (走势)</th>
+                <th class="py-2 px-2.5">状态</th>
+                <th class="py-2 px-2.5">🏭 实业真实水温</th>
+                <th class="py-2 px-2.5">🗣️ 展业破冰谈资</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-dark-800 text-slate-200">
+              <tr>
+                <td class="py-2 px-2.5 font-bold text-white">GDP 季度同比</td>
+                <td class="py-2 px-2.5 font-mono text-amber-400">5.0% (前值4.7%)</td>
+                <td class="py-2 px-2.5 text-emerald-400">✅ 达标区间</td>
+                <td class="py-2 px-2.5 text-slate-300">总量守底线但温差大，高端制造强、地产链偏冷</td>
+                <td class="py-2 px-2.5 text-amber-200/90">“GDP增速守底线，新旧动能切换，高附加值是唯一出路。”</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-2.5 font-bold text-white">M2 广义货币</td>
+                <td class="py-2 px-2.5 font-mono text-amber-400">8.2% (前值8.0%)</td>
+                <td class="py-2 px-2.5 text-blue-400">💧 水库满库</td>
+                <td class="py-2 px-2.5 text-slate-300">流动性充裕，但以居民与企业大额定存沉淀</td>
+                <td class="py-2 px-2.5 text-amber-200/90">“大水库的水非常满，钱都在银行账上趴着防守。”</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-2.5 font-bold text-white">M1 狭义货币</td>
+                <td class="py-2 px-2.5 font-mono text-rose-400">-1.4% (前值-1.8%)</td>
+                <td class="py-2 px-2.5 text-amber-400">⚠️ 负剪刀差</td>
+                <td class="py-2 px-2.5 text-slate-300">企业活期资金占比低，资金活化度待提升</td>
+                <td class="py-2 px-2.5 text-amber-200/90">“M1是随时掏出来的活钱，大家都在防守，不敢盲目扩张。”</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-2.5 font-bold text-white">PPI 出厂物价</td>
+                <td class="py-2 px-2.5 font-mono text-rose-400">-2.1% (前值-2.8%)</td>
+                <td class="py-2 px-2.5 text-rose-400">📉 利润承压</td>
+                <td class="py-2 px-2.5 text-slate-300">工业批发持续杀价，实体“有营收无利润”</td>
+                <td class="py-2 px-2.5 text-amber-200/90">“PPI为负是今年最痛的根源：出厂价被同行压着打。”</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-2.5 font-bold text-white">10年期国债</td>
+                <td class="py-2 px-2.5 font-mono text-cyan-400">2.12% (前值2.25%)</td>
+                <td class="py-2 px-2.5 text-cyan-400">📉 资产荒加剧</td>
+                <td class="py-2 px-2.5 text-slate-300">长端利率破位下行，大行定存破1.5%</td>
+                <td class="py-2 px-2.5 text-amber-200/90">“无风险收益资产全面绝迹，锁定长期确定分红已成刚需。”</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-2.5 font-bold text-white">沪深300市盈率</td>
+                <td class="py-2 px-2.5 font-mono text-emerald-400">12.8倍 (45%分位)</td>
+                <td class="py-2 px-2.5 text-emerald-400">📊 中位偏下</td>
+                <td class="py-2 px-2.5 text-slate-300">政策底与流动性底确立，长线配置价值凸显</td>
+                <td class="py-2 px-2.5 text-amber-200/90">“估值处于历史中位偏低，适合定投分批建仓优质底仓。”</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 🥬 8大宏观术语“通俗买菜比喻”速查折叠卡 -->
+      <div class="bg-dark-850 rounded-2xl border border-dark-700 p-4 md:p-5 shadow-sm space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm font-bold text-white flex items-center gap-2">
+            <span>🥬</span> 宏观金融 8 大概念“通俗买菜比喻”速查 (陪谈与培训脱口而出)
+          </h3>
+          <span class="text-[10px] text-amber-400 font-mono">小白秒懂 · 外勤必背</span>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          <div class="p-3 bg-dark-900 rounded-xl border border-dark-700/80">
+            <div class="text-amber-400 font-bold mb-1">1. PE 市盈率（买菜摊位费比喻）</div>
+            <p class="text-slate-300 leading-relaxed">
+              菜市场买个摊位要10万元，这个摊位每年净赚1万元，回本需要10年，PE就是10倍。如果摊位炒到50万（PE=50倍），要卖菜50年才回本，这就是泡沫；如果摊位跌到8万（PE=8倍），回本快，就是便宜黄金期。
+            </p>
+          </div>
+          <div class="p-3 bg-dark-900 rounded-xl border border-dark-700/80">
+            <div class="text-amber-400 font-bold mb-1">2. M2 与 M1（水库与抽水泵比喻）</div>
+            <p class="text-slate-300 leading-relaxed">
+              M2是山顶水库蓄了满满一库水（存款总额大）；M1是农民伯伯能随时拧开浇菜的抽水机（活期现金）。现在水库水位极高（M2=8.2%），但大家不敢借水浇地，抽水机没开（M1=-1.4%），这就是“负剪刀差”。
+            </p>
+          </div>
+          <div class="p-3 bg-dark-900 rounded-xl border border-dark-700/80">
+            <div class="text-amber-400 font-bold mb-1">3. PPI 与 CPI（批发价与零售价）</div>
+            <p class="text-slate-300 leading-relaxed">
+              PPI是蔬菜批发大市场的出厂价，CPI是老百姓菜篮子的最终买菜价。现在PPI为负（-2.1%），说明地头批发都在赔本甩卖、价格战惨烈；虽然老百姓买菜便宜了（CPI温和），但种菜和做生意的实体老板最受伤。
+            </p>
+          </div>
+          <div class="p-3 bg-dark-900 rounded-xl border border-dark-700/80">
+            <div class="text-amber-400 font-bold mb-1">4. 分红特别储备账户（公仓存粮比喻）</div>
+            <p class="text-slate-300 leading-relaxed">
+              好比村里的粮仓：丰收年粮食多，不全分光吃光，扣下一部分存进公仓；等遇到大旱灾荒年，再开仓放粮贴补各家。平安分红险靠这个机制，实现几十年平抑市场剧烈波动。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🗣️ 展业破冰两分钟口袋短语 (高客面谈直接用) -->
+      <div class="bg-gradient-to-r from-amber-500/10 via-dark-850 to-blue-500/10 rounded-2xl border border-amber-500/30 p-4 md:p-5 shadow-sm space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm font-bold text-white flex items-center gap-2">
+            <span>🗣️</span> 晨会演练与展业破冰“两分钟口袋短语”
+          </h3>
+          <span class="text-[10px] text-amber-400 font-mono">见客开门三句话</span>
+        </div>
+
+        <div class="space-y-2.5 text-xs">
+          <div class="p-3 bg-dark-900/80 rounded-xl border-l-4 border-amber-500">
+            <strong class="text-amber-400 block mb-1">🎯 场景一：见义乌/金华实业老板（面对“实体难做、利润薄如纸”）：</strong>
+            <p class="text-slate-200 leading-relaxed">
+              “张总，现在PPI持续为负，实体企业普遍‘有营收、无利润’，降价只会把现金流榨干。越是这个时候，越不能把所有本钱都押在厂房和货款上。聪明的老板现在都在做‘资产截流’：每年固定从利润里拿出一块，做一张跟企业债务完全切断的家庭现金流防火墙。哪怕外面风浪再大，老婆孩子的饭碗和您东山再起的本钱永远动不了！”
+            </p>
+          </div>
+
+          <div class="p-3 bg-dark-900/80 rounded-xl border-l-4 border-cyan-500">
+            <strong class="text-cyan-400 block mb-1">🎯 场景二：见银行大额存单/保守理财客户（面对“嫌利率低却不敢投”）：</strong>
+            <p class="text-slate-200 leading-relaxed">
+              “王董，现在10年期国债收益率都破2.1%了，大行三年期定存马上见不到1.5%。您现在看着理财还有两点几，但两三年一到期，您手里的钱往哪儿放？买房涨不动、股市不敢赌、定存不断降。您现在最需要的不是冒高风险，而是趁现在锁定一份写进合同、一辈子源源不断给您发钱的确定现金流！”
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🎯 3个底层逻辑自测深度思考题 -->
+      <div class="bg-dark-850 rounded-2xl border border-dark-700 p-4 md:p-5 shadow-sm space-y-3">
+        <h3 class="text-sm font-bold text-white flex items-center gap-2">
+          <span>🎯</span> 检验宏观底层逻辑的 3 个深度自测思考题
+        </h3>
+        
+        <div class="space-y-2.5 text-xs">
+          <div class="p-3 bg-dark-900 rounded-xl border border-dark-700">
+            <span class="text-amber-400 font-bold block mb-1">Q1：为什么央行M2水量很大，但实体企业普遍觉得“缺钱、回款慢”？</span>
+            <p class="text-slate-300 leading-relaxed">
+              <strong>答：</strong>货币是通过信贷派生的。当前实体需求端处于去杠杆防守阶段，资金大量在金融系统内以居民与企业定期形式沉淀（M1-M2负剪刀差达-9.6%），未活化为订金与采购现金流，因此水库虽满，下游农田依然干渴。
+            </p>
+          </div>
+
+          <div class="p-3 bg-dark-900 rounded-xl border border-dark-700">
+            <span class="text-amber-400 font-bold block mb-1">Q2：面对持续为负的 PPI，为什么单纯“降价促销”反而会加速企业死亡？</span>
+            <p class="text-slate-300 leading-relaxed">
+              <strong>答：</strong>在全行业产能过剩时，降价不会带来额外增量需求，反而会摧毁行业边际利润率，让现金流枯竭。真正的破局点是“差异化细分定位”或“抱团出海开拓非欧美溢价市场”。
+            </p>
+          </div>
+
+          <div class="p-3 bg-dark-900 rounded-xl border border-dark-700">
+            <span class="text-amber-400 font-bold block mb-1">Q3：地方化债启动对实体企业的应收账款意味着什么？</span>
+            <p class="text-slate-300 leading-relaxed">
+              <strong>答：</strong>中央发行低息国债置换地方高息隐性债务，极大卸掉了地方政府的利息重负，为财政专班腾出了“清欠民企账款”的真金白银。当前正是企业梳理历史涉政债权、争取优先清偿的关键窗口期。
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </main>
 
   <!-- ================= MOBILE STICKY BOTTOM NAVIGATION BAR ================= -->
@@ -597,9 +879,9 @@
       <span class="text-[10px] mt-0.5">实验</span>
     </button>
 
-    <button onclick="switchTab('tab-news')" id="m-nav-tab-news" class="m-nav-btn flex flex-col items-center justify-center py-1 px-2.5 text-slate-400 transition-all">
-      <span class="text-lg">🌐</span>
-      <span class="text-[10px] mt-0.5">要闻</span>
+    <button onclick="switchTab('tab-news')" id="nav-tab-news" class="tab-btn px-4 py-3 border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2">
+      <span>📈</span> 每日经济日报与宏观
+      <span class="px-1.5 py-0.2 rounded-full bg-amber-500/20 text-amber-400 text-[10px] font-mono font-bold">每日更新</span>
     </button>
     <button onclick="switchTab('tab-storage')" id="m-nav-tab-storage" class="m-nav-btn flex flex-col items-center justify-center py-1 px-2.5 text-slate-400 transition-all">
       <span class="text-lg">☁️</span>

@@ -273,7 +273,7 @@
     }
 
     function createCardHTML(item) {
-      const isHero = item.id === 'mindradar';
+      const isHero = item.id === 'mindradar' || item.id === 'economic_daily' || item.isHero === true;
       const cardBorder = isHero 
         ? 'border-2 border-amber-500/60 shadow-lg shadow-amber-950/20' 
         : 'border border-dark-700 hover:border-dark-600 hover:border-amber-500/40';

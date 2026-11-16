@@ -104,17 +104,17 @@
     "isHero": false
   },
   {
-    "id": "national_news",
-    "title": "热点国家新闻追踪与深度解读中枢",
+    "id": "economic_daily",
+    "title": "金华家办 · 每日经济日报与宏观大政中枢",
     "category": "business",
     "categoryName": "业务与法商",
-    "icon": "🌐",
-    "tag": "宏观大政 · 三师解读",
-    "badge": "每日追踪",
+    "icon": "📈",
+    "tag": "每日经济日报 · 宏观大盘",
+    "badge": "每日更新",
     "url": "news/index.html",
-    "desc": "顶层财政化债、央行宽松、房地产止跌、延迟退休、日本三十年对照与新公司法，权威大政事实+三师透析+通俗买菜比喻+展业口袋短语。",
+    "desc": "十维宏观数据全景矩阵+ECharts交互大屏+三师共诊透析+生活化买菜比喻+高客两分钟展业口袋短语。",
     "status": "active",
-    "isHero": false
+    "isHero": true
   },
   {
     "id": "beiyun",
